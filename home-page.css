@@ -1,0 +1,787 @@
+/* ==================== FONT + VARIABEL ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root{
+    --bg: #FAF7F2;
+    --accent: #f3c16c;
+    --accent-dark: #e7b45d;
+    --dark: #5c3b18;
+    --muted: #6b5031;
+
+    --right-bg: #f6e9df;
+
+    --card-shadow: 0 8px 20px rgba(34,34,34,0.06);
+    --card-shadow-hover: 0 18px 40px rgba(34,34,34,0.07);
+
+    --radius-lg: 16px;
+    --radius-sm: 10px;
+
+    --container-max: 1180px;
+    --space-sm: 12px;
+}
+
+/* ==================== RESET ==================== */
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
+}
+
+html{ font-size: 16px; }
+
+body{
+    background: linear-gradient(180deg, #FFF9F3, #F7ECDC);
+    color: var(--dark);
+    min-height: 100vh;
+}
+
+/* ==================== SIDEBAR ==================== */
+.sidebar{
+    width: 80px;
+    background: #fff;
+    height: 100vh;
+    padding: 20px 0;
+    border-radius: 0 20px 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 0 20px rgba(0,0,0,0.06);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 20;
+}
+
+.sidebar .logo { 
+    display:flex; 
+    justify-content:center; 
+    padding:6px 0; 
+}
+
+.sidebar img{ width:40px; }
+
+.side-menu{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+}
+
+.side-menu a{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    text-decoration: none;
+}
+
+.side-menu a i{
+    font-size:22px;
+    padding:12px;
+    margin:6px 0;
+    border-radius:12px;
+    cursor:pointer;
+    color:#815e26;
+    transition: .22s ease;
+}
+
+.side-menu a i:hover{
+    background:#f5e7d3;
+    box-shadow:0 8px 20px rgba(129,94,38,0.12);
+}
+
+.profile img{
+    width:44px;
+    border-radius:50%;
+    display:block;
+    margin:auto;
+}
+
+/* ==================== LAYOUT ==================== */
+ a{
+    text-decoration: none;
+}
+
+
+.layout{
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 24px;
+    padding: 28px;
+    margin-left: 120px;
+    align-items: start;
+}
+
+/* ==================== FEED ==================== */
+.feed{ max-width: 1100px; }
+
+.feed-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+    transition: opacity .25s ease, transform .25s ease;  /* smooth */
+}
+
+.feed-header h1{
+    font-size:32px;
+    color:#7a5236;
+}
+
+.sub{ 
+    color:var(--muted); 
+    font-size:14px; 
+    margin-top:6px; 
+}
+
+/* SEMUA HEADER (judul + tabs + tombol) HILANG SAAT DISCROLL, TANPA UBAH HEIGHT */
+.feed-header.scrolled{
+    opacity:0;
+    transform: translateY(-12px);
+    pointer-events:none;
+}
+
+/* tabs */
+.controls{ display:flex; gap:12px; }
+.tabs{ display:flex; gap:10px; }
+.tab{
+    padding:8px 12px;
+    border-radius:10px;
+    border:none;
+    background:transparent;
+    font-weight:700;
+    color:var(--muted);
+    cursor:pointer;
+}
+.tab.active{
+    background: rgba(106,72,36,0.06);
+    color:var(--dark);
+}
+
+.fab-post{
+    width:44px;
+    height:44px;
+    background:var(--accent);
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    box-shadow:0 8px 22px rgba(243,193,108,0.18);
+}
+
+/* ==================== HERO (diperkecil & rapi) ==================== */
+.hero-banner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:10px 14px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.9);
+    box-shadow: 0 10px 24px rgba(18,18,18,0.04);
+    margin-bottom:18px;
+    transition: opacity .25s ease, transform .25s ease; /* smooth */
+}
+
+.hero-copy{
+    flex:1;
+}
+
+.hero-image{
+    flex-shrink:0;
+}
+
+.hero-image img{
+    width:260px;
+    height:110px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.hero-copy h2{
+    color:#6b4d2f;
+    font-size:18px;
+    margin-bottom:4px;
+}
+
+.hero-copy p{
+    color:#8b6f56;
+    font-size:13px;
+    line-height:1.4;
+}
+
+/* HERO hilang saat discroll – TANPA ubah height/margin */
+.hero-banner.scrolled{
+    opacity:0;
+    transform:translateY(-12px);
+    pointer-events:none;
+}
+
+/* ==================== FEED CARDS (diperkecil) ==================== */
+.cards{
+    margin-top:10px;
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:18px;
+}
+
+.card{
+    background:#fff;
+    border-radius: 14px;
+    box-shadow: var(--card-shadow);
+    padding-bottom:10px;
+    overflow:hidden;
+    transition: .18s ease;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+.card-header{
+    display:flex;
+    align-items:center;
+    padding:10px 12px;
+    gap:10px;
+}
+
+.card-header img{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.card-header h4{
+    font-size:14px;
+}
+
+.card-header p{
+    font-size:11px;
+}
+
+.card-img{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+}
+
+.tag{
+    margin-left:auto;
+    background:#6c4e2c;
+    padding:5px 9px;
+    border-radius:10px;
+    color:white;
+    font-size:11px;
+}
+
+.tag.story{
+    background: var(--accent);
+    color:#2b1608;
+}
+
+.card-icon{
+    padding:8px 12px;
+    display:flex;
+    gap:10px;
+    font-size:18px;
+    color:#735330;
+}
+
+.card p {
+    font-size:12px;
+    margin: 0%;
+    color: #7d7d7d;;
+}
+.card-body{ padding:6px 12px 14px; }
+
+.card-body p{
+    font-size:13px;
+    margin:4px 0;
+    color:#3f3f3f;
+}
+
+.card-body .likes,
+.card-body .meta{
+    font-size:12px;
+}
+
+.time-row{
+    display:flex;
+    justify-content:space-between;
+    margin-top:6px;
+}
+
+.blog-btn{
+    padding:6px 12px;
+    border-radius:999px;
+    background:linear-gradient(135deg,#ffd6e0,#ffd68a,#ffb6c1);
+    font-size:12px;
+    font-weight:600;
+    color:#332211;
+    text-decoration:none;
+}
+
+/* ==================== RIGHT PANEL ==================== */
+
+.right{
+    position: sticky;
+    top: 28px;
+    align-self: flex-start;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    height: auto;
+}
+
+.right-inner{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+/* hilangkan scrollbar kanan */
+.right-inner::-webkit-scrollbar{
+    width: 0;
+}
+.right-inner{
+    scrollbar-width: none;
+}
+
+/* kartu kanan */
+.stories-card,
+.trending-mini,
+.suggest-card{
+    background: rgba(255,255,255,0.9);
+    border-radius: 16px;
+    padding: 0.85rem 1rem 1rem;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.05);
+    border: 1px solid rgba(255,255,255,0.7);
+    backdrop-filter: blur(10px);
+}
+
+.stories-card h3,
+.trending-mini h3,
+.suggest-card h3{
+    margin: 0 0 0.7rem;
+    font-size: 0.86rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--dark);
+    opacity:.85;
+}
+
+/* STORY */
+.stories-card{
+    background: rgba(255,255,255,0.85);
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 0 12px 34px rgba(0,0,0,0.05);
+}
+
+.stories-card h3{
+    margin-bottom: .6rem;
+    color: var(--dark);
+    font-weight: 700;
+    font-size: .9rem;
+}
+
+.stories{
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+}
+.stories::-webkit-scrollbar{ display:none; }
+
+.story-item{
+    flex: 0 0 auto;
+    width: 110px;
+    height: 165px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #ffffff; 
+    border: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.story-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;    
+    background: #fff;        
+    border-radius: inherit;
+}
+
+/* TOP PICKS */
+.trending-mini{
+    display:flex;
+    flex-direction:column;
+}
+
+.mini-list{
+    display:flex;
+    flex-direction:column;
+    gap:.7rem;
+}
+
+.mini-card{
+    display:flex;
+    gap:.7rem;
+    align-items:center;
+    background:rgba(255,255,255,0.95);
+    padding:.6rem .7rem;
+    border-radius:12px;
+    transition:.15s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+.mini-card:hover{
+    transform:translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+}
+
+.mini-card img{
+    width:54px;
+    height:54px;
+    border-radius:10px;
+    object-fit:cover;
+}
+
+.mini-info strong{
+    font-size:.88rem;
+    color:var(--dark);
+}
+
+.mini-info span{
+    font-size:.74rem;
+    color:var(--muted);
+    margin-top:2px;
+}
+
+/* SUGGESTED USERS */
+.suggest{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:.7rem;
+}
+
+.suggest li{
+    display:flex;
+    align-items:center;
+    gap:.7rem;
+}
+
+.suggest img{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.s-meta{
+    display:flex;
+    flex-direction:column;
+    line-height:1.2;
+}
+
+.s-meta strong{
+    font-size:.86rem;
+    color:var(--dark);
+}
+
+.s-meta .handle{
+    font-size:.72rem;
+    color:var(--muted);
+}
+
+/* Follow button */
+.add{
+    margin-left:auto;
+    padding:.35rem .9rem;
+    font-size:.74rem;
+    font-weight:600;
+    background:#fff;
+    border:1px solid rgba(0,0,0,0.06);
+    border-radius:999px;
+    cursor:pointer;
+    transition:.15s ease;
+}
+
+.add:hover{
+    background:var(--accent);
+    color:#fff;
+    border-color:var(--accent);
+    transform:translateY(-2px);
+}
+
+/* FEED SCROLL – pakai scroll halaman biasa, kasih ruang bawah */
+.feed-scroll{
+    margin-top:4px;
+    padding-bottom:40px;
+}
+
+/* ==================== DESAIN FITUR LIKE & KOMENTAR ==================== */
+
+/* HATI SAAT LIKE */
+.card-icon i.liked{
+    color: #e74c3c;
+}
+
+/* ICON KOMENTAR AKTIF */
+.card-icon i.comment-active{
+    color: var(--accent-dark);
+}
+
+/* WRAPPER BOX KOMENTAR DALAM CARD */
+.comment-box{
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f0e2d3;
+    display: none;
+}
+
+/* tampil saat show */
+.comment-box.show{
+    display: block;
+}
+
+/* HEADER KECIL DI ATAS KOMENTAR */
+.comment-header-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.comment-title{
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    opacity: 0.9;
+}
+
+/* AVATAR DI KOMENTAR */
+.comment-avatar-img{
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.comment-avatar-me{
+    border: 2px solid #ffd68a;
+}
+
+/* LIST KOMENTAR */
+.comment-list{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 6px;
+    max-height: 130px;
+    overflow-y: auto;
+}
+
+/* TIAP ITEM KOMENTAR */
+.comment-item{
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+/* BALON KOMENTAR */
+.comment-bubble{
+    background: #fff7ee;
+    border-radius: 12px;
+    padding: 4px 9px 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    border: 1px solid rgba(243,193,108,0.3);
+    max-width: 100%;
+}
+
+/* BARIS ATAS: NAMA + TANGGAL */
+.comment-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1px;
+}
+
+.comment-name{
+    font-size: 11px;
+    font-weight: 600;
+    color: #6b4d2f;
+}
+
+.comment-date{
+    font-size: 10px;
+    color: #b19a84;
+    white-space: nowrap;
+}
+
+.comment-text{
+    font-size: 12px;
+    color: #4a3b2a;
+    line-height: 1.35;
+}
+
+/* FORM KOMENTAR (INPUT + AVATAR + BUTTON) */
+.comment-form{
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-top: 4px;
+}
+
+/* INPUT KOMENTAR */
+.comment-input{
+    flex: 1;
+    border-radius: 999px;
+    border: 1px solid #e1d3c4;
+    padding: 5px 11px;
+    font-size: 12px;
+    outline: none;
+    background: #fff;
+}
+
+.comment-input::placeholder{
+    color: #b7a38e;
+}
+
+.comment-input:focus{
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(243,193,108,0.2);
+}
+
+/* TOMBOL KIRIM */
+.comment-send{
+    border: none;
+    border-radius: 999px;
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    background: var(--accent);
+    color: #4b3014;
+    cursor: pointer;
+    flex-shrink: 0;
+    box-shadow: 0 3px 8px rgba(243,193,108,0.4);
+}
+
+.comment-send:hover{
+    opacity: 0.92;
+    transform: translateY(-1px);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media(max-width:1150px){
+    .layout{ 
+        grid-template-columns:1fr; 
+        margin-left:20px; 
+        padding:18px; 
+        margin-top: 90px;
+    }
+    .right{ display:none; }
+    .cards{ grid-template-columns:1fr; }
+    
+    .sidebar{
+        width: 100%;
+        height: 70px;
+        border-radius: 0;
+        flex-direction: row;
+        padding: 0 20px;
+        align-items: center;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .sidebar .logo{
+        padding: 0;
+    }
+    
+    .side-menu {
+        flex-direction: row;
+        gap: 18px;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .side-menu a i{
+        font-size: 20px;
+        padding: 10px;
+        margin: 0;
+    }
+
+    .hero-banner{
+        margin-top:8px;
+    }
+}
+
+@media(max-width:700px){
+    .layout{ 
+        margin-left:0; 
+        padding:14px; 
+        margin-top: 80px;
+    }
+    .cards{ grid-template-columns:1fr; }
+    
+    .hero-banner{
+        flex-direction: column;
+        align-items:flex-start;
+    }
+    
+    .hero-image img{
+        width: 100%;
+        height: 150px;
+    }
+    
+    .feed-header h1{
+        font-size: 26px;
+    }
+    
+    .controls{
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .tabs{
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+    
+    .tabs::-webkit-scrollbar{ display: none; }
+    
+    .sidebar{
+        padding: 0 12px;
+        height: 65px;
+    }
+    
+    .sidebar img{
+        width: 34px;
+    }
+    
+    .side-menu a i{
+        font-size: 18px;
+        padding: 8px;
+    }
+    
+    .profile img{
+        width: 36px;
+    }
+}

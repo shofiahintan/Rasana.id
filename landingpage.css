@@ -1,0 +1,665 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root{
+    --primary-color: #D08A09;
+    --primary-color-light: #fffcfa;
+    --primary-color-dark: #745338;
+    --text-dark: #745338;
+    --text-light: #777777;
+    --white: #fff;
+    --max-width: 1200px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--primary-color-light);
+    color: var(--text-dark);
+}
+
+/* ==================== NAV ==================== */
+nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--white) gradient(to right, #fff6ef 0%, #ffe9d1 100%);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+}
+
+.nav_header {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav_logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; 
+}
+
+.nav_logo img {
+    width: 100px;         
+    height: auto;          
+    object-fit: contain;   
+    display: block;  
+}
+
+.nav_logo a {
+    font-size: 1.7rem; 
+    font-weight: 700;
+    color: var(--text-dark);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav_logo span {
+    color: var(--primary-color);
+}
+
+/* ====== LINK NAV ====== */
+.nav_links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav_links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.nav_links a:hover {
+    color: var(--primary-color);
+}
+
+/* ====== TOMBOL MASUK ====== */
+.nav_btn .btn {
+    background-color: var(--primary-color);
+    border: none;
+    color: var(--white);
+    font-weight: 500;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav_btn a{
+    text-decoration: none;
+}
+  
+.nav_btn .btn:hover {
+    background-color: var(--primary-color-dark);
+}
+
+/* ==================== HEADER ==================== */
+.section_container{
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 8rem 2rem 3rem;
+}
+
+.header_container{
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    min-height: 90vh;
+    grid-template-columns: 1.1fr 0.9fr;
+}
+
+.header_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateY(-20px);
+}
+
+.header_content h1{
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.header_content h1 span{
+    color: var(--primary-color);
+}
+
+.section_description{
+    color: var(--text-light);
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* === TOMBOL UTAMA DAN PANAH === */
+.header_btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header_btn .btn{
+    background-color: var(--primary-color);
+    border: none;
+    color: var(--white);
+    font-weight: 600;
+    padding: 0.9rem 2rem;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(252, 127, 9, 0.3);
+    text-decoration: none;
+}
+
+.header_btn .btn:hover{
+    background-color: var(--primary-color-dark);
+}
+
+.btn_arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn_arrow:hover {
+  background-color: var(--primary-color-dark);
+  transform: translateX(4px);
+}
+
+.btn_arrow i {
+  line-height: 1;
+}
+
+.header_image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_image img{
+    width: 80%;
+    max-width: 420px;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.1));
+    transition: transform 0.4s ease;
+}
+
+.header_image img:hover {
+    transform: scale(1.03);
+}
+
+@media (width > 768px){
+    .header_container{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ==================== CARD SECTION ==================== */
+.card_section {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(to bottom, var(--primary-color-light), #ffe9d1);
+    padding: 5rem 0;
+    overflow: hidden;
+}
+
+.card_slider_container {
+    max-width: var(--max-width);
+    margin: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 5rem;
+}
+
+.cards_wrapper {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 1rem;
+    scrollbar-width: none;
+    justify-content: center;
+}
+
+.cards_wrapper::-webkit-scrollbar { display: none; }
+
+.food_card {
+    flex: 0 0 calc(25% - 1.5rem);
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 16px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.food_card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.food_card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.card_info {
+    padding: 0.8rem 1rem 0.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2rem;
+    text-align: center;
+}
+
+.card_info h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.card_info p {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.3;
+}
+
+
+
+/* ==================== PANAH SLIDER ==================== */
+.slider_arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--white);
+    border: none;
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    padding: 0.7rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.25s ease;
+}
+
+.slider_arrow:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.left_arrow { left: 1rem; }
+.right_arrow { right: 1rem; }
+
+/* ==================== GRADIENT TEPI SLIDER ==================== */
+.card_section::before,
+.card_section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.card_section::before {
+    left: 0;
+    background: linear-gradient(to right, var(--primary-color-light) 20%, transparent);
+}
+
+.card_section::after {
+    right: 0;
+    background: linear-gradient(to left, var(--primary-color-light) 20%, transparent);
+}
+
+/* ==================== SECTION 3: MENGAPA MEMILIH ==================== */
+.why_choose {
+  padding: 80px 0;
+  background: linear-gradient(to bottom, #fff7f0 0%, #ffffff 100%);
+  text-align: center;
+}
+
+.why_choose h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: var(--text-dark);
+}
+
+.why_choose h2 span {
+  color: var(--primary-color);
+}
+
+.reasons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.reason_card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  padding: 2.5rem 1.5rem;
+  flex: 0 0 calc(25% - 2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reason_card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+}
+
+.icon_box {
+  width: 80px;
+  height: 80px;
+  background: var(--primary-color-light);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+  transition: background 0.3s ease;
+}
+
+.icon_box i {
+  font-size: 2rem;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+.reason_card:hover .icon_box {
+  background: var(--primary-color);
+}
+
+.reason_card:hover .icon_box i {
+  color: #fff;
+}
+
+.reason_card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.reason_card p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ==================== SECTION 4: CTA ==================== */
+.cta_section {
+  background: linear-gradient(to right, #fff6ef 0%, #ffe9d1 100%);
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cta_container {
+  max-width: var(--max-width);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+.cta_text h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.cta_text h2 span {
+  color: var(--primary-color);
+}
+
+.cta_text p {
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.cta_buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn_primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn_primary:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.btn_outline {
+  background: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  padding: 0.8rem 1.6rem;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn_outline:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.cta_image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle_bg {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, #ffe1c4 0%, #fff6ef 100%);
+  border-radius: 50%;
+  z-index: 1;
+  filter: blur(2px);
+}
+
+.cta_image img {
+  position: relative;
+  width: 300px;
+  z-index: 2;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.1));
+}
+
+/* ==================== FOOTER ==================== */
+.footer_section {
+    background-color: #222;
+    color: #fff;
+    padding: 4rem 2rem 2rem;
+}
+
+.footer_container {
+    max-width: var(--max-width);
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: left;
+}
+
+.footer_container h3,
+.footer_container h4 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.footer_container p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.footer_container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer_container ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer_container ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer_container ul li a:hover {
+    color: var(--primary-color);
+}
+
+.footer_copy {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 992px) {
+    .food_card { flex: 0 0 calc(33.33% - 1rem); height: 340px; }
+    .food_card img { height: 210px; }
+    .reason_card { flex: 0 0 calc(50% - 1rem); }
+    .cta_container { grid-template-columns: 1fr; text-align: center; }
+    .cta_text { order: 2; }
+    .cta_image { order: 1; }
+    .cta_buttons { justify-content: center; }
+    .circle_bg { width: 280px; height: 280px; }
+    .cta_image img { width: 220px; }
+    .footer_container { grid-template-columns: 1fr 1fr; text-align: center; }
+}
+
+@media (max-width: 768px) {
+    .food_card { flex: 0 0 calc(50% - 1rem); height: 320px; }
+    .food_card img { height: 200px; }
+    .left_arrow { left: 0.2rem; }
+    .right_arrow { right: 0.2rem; }
+}
+
+@media (max-width: 576px) {
+    .reason_card { flex: 0 0 100%; }
+}
+
+@media (max-width: 480px) {
+    .food_card { flex: 0 0 100%; height: 300px; }
+    .food_card img { height: 180px; }
+}
+
+@media (max-width: 576px) {
+    .footer_container { grid-template-columns: 1fr; }
+}
+
+/* ==================== HAMBURGER MENU ==================== */
+.hamburger {
+    display: none;
+    font-size: 1.9rem;
+    cursor: pointer;
+    color: var(--text-dark);
+    background-color: var(--primary-color-light);
+}
+
+/* ==================== NAVBAR RESPONSIVE ==================== */
+@media (max-width: 768px) {
+
+    .nav_header {
+        padding: 1rem;
+    }
+
+    /* Sembunyikan link menu di mobile */
+    .nav_links {
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 2rem 0;
+        display: none;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Muncul ketika hamburger di-klik */
+    .nav_links.active {
+        display: flex;
+        background: var(--white);
+    }
+
+    /* Tampilkan hamburger icon */
+    .hamburger {
+        display: block;
+        background: transparent;
+    }
+
+    /* Sembunyikan tombol login biar rapi */
+    .nav_btn {
+        display: none;
+    }
+}

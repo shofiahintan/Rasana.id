@@ -1,0 +1,333 @@
+:root {
+    --primary-bg: #F9F5EE; 
+    --card-bg: #FFFFFF;
+    --text-color: #333;
+    --nav-icon-color: #A0A0A0;
+    --active-nav-icon: #DC8F00;
+    --button-bg: #DC8F00;
+    --border-color: #E0E0E0;
+    --sidebar-new-bg: #fff;
+    --sidebar-new-icon-color: #815e26;
+    --sidebar-new-hover-bg: #f5e7d3;
+    --sidebar-new-active-bg: #FEE7C1;
+    --sidebar-new-active-icon: #DC8F00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body { 
+    min-height: 100vh; 
+    display: flex; 
+    background-color: var(--primary-bg); 
+}
+
+.container { 
+    display: flex; 
+    width: 100%; 
+    min-height: 100vh; 
+}
+
+/* ==================== SIDEBAR ==================== */
+.sidebar{
+    width: 80px;
+    background: #fff;
+    height: 100vh;
+    padding: 20px 0;
+    border-radius: 0 20px 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 0 20px rgba(0,0,0,0.06);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 20;
+}
+
+.sidebar .logo { 
+    display:flex; 
+    justify-content:center; 
+    padding:6px 0; 
+}
+
+.sidebar img{ 
+    width:40px; 
+}
+
+.side-menu{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+}
+
+.side-menu a{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    text-decoration: none;
+}
+
+.side-menu a i{
+    font-size:22px;
+    padding:12px;
+    margin:6px 0;
+    border-radius:12px;
+    cursor:pointer;
+    color:#815e26;
+    transition: .22s ease;
+}
+
+.side-menu a i:hover{
+    background:#f5e7d3;
+    box-shadow:0 8px 20px rgba(129,94,38,0.12);
+}
+
+.profile img{
+    width:44px;
+    border-radius:50%;
+    display:block;
+    margin:auto;
+}
+
+.main-content {
+    margin-left: 80px;
+    flex-grow: 1;
+    padding: 70px 100px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-bg);
+}
+
+.upload-card {
+    background-color: var(--card-bg);
+    border-radius: 0 !important;
+    padding: 30px;
+    width: 100%;
+    max-width: 984px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-title { 
+    font-size: 28px; 
+    font-weight: 600; 
+    margin-bottom: 30px; 
+    width: 100%; 
+}
+
+.image-upload-area {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    background-color: #F8F8F8;
+    border: 1px solid var(--border-color);
+    border-radius: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 30px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.image-placeholder-icon { 
+    font-size: 80px; 
+    color: #C0C0C0; 
+    z-index: 5; 
+    pointer-events: none; 
+}
+
+.uploaded-image {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    z-index: 2; 
+    pointer-events: none;
+}
+
+.upload-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: var(--active-nav-icon);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    padding: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.description-textarea {
+    min-height: 280px;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 0 !important;
+    background-color: #F8F8F8;
+    font-size: 15px;
+    color: var(--text-color);
+    resize: vertical;
+}
+
+.description-textarea::placeholder { 
+    color: #B0B0B0; 
+}
+
+.form-section { 
+    margin-bottom: 20px; 
+    position: relative; 
+    z-index: 10; 
+}
+
+.form-label { 
+    display: block; 
+    font-size: 15px; 
+    font-weight: 500; 
+    margin-bottom: 8px; 
+    color: var(--text-color); 
+}
+
+.custom-select-wrapper { 
+    width: 100%; 
+    position: relative; 
+    z-index: 15; 
+}
+
+.custom-select-trigger {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 0 !important;
+    background-color: #F8F8F8;
+    font-size: 15px;
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* FIX BAGIAN INI (BUKAN ABSOLUTE, TANPA TOP/LEFT) */
+.custom-options {
+    position: relative;       /* FIX */
+    width: 100%;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0 !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height .3s ease-out, opacity .3s ease-out, visibility .3s;
+}
+
+.custom-options.show { 
+    max-height: 200px; 
+    opacity: 1; 
+    visibility: visible; 
+}
+
+.custom-option { 
+    padding: 10px 15px; 
+    cursor: pointer; 
+    transition: background-color .15s; 
+}
+
+.custom-option:hover { 
+    background-color: var(--sidebar-new-hover-bg); 
+}
+
+.create-events-btn {
+    width: 100%;
+    padding: 15px 25px;
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 8px !important;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color .3s ease;
+}
+
+.create-events-btn:hover { 
+    background-color: #C17D00; 
+}
+
+.description-textarea {
+    min-height: 200px !important;
+    width: 100% !important;
+    resize: vertical !important;
+}
+
+/* FIX – hapus duplikat yang rusak */
+.custom-select-options.open {
+    display: block;
+}
+
+
+@media(max-width:1150px){
+    .sidebar{
+        width: 100%;
+        height: 70px;
+        border-radius: 0;
+        flex-direction: row;
+        padding: 0 20px;
+        align-items: center;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .sidebar .logo{
+        padding: 0;
+    }
+    
+    .side-menu {
+        flex-direction: row;
+        gap: 18px;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .side-menu a i{
+        font-size: 20px;
+        padding: 10px;
+        margin: 0;
+    }
+}
+
+@media(max-width:700px){
+    .sidebar{
+        padding: 0 12px;
+        height: 65px;
+    }
+    
+    .sidebar img{
+        width: 34px;
+    }
+    
+    .side-menu a i{
+        font-size: 18px;
+        padding: 8px;
+    }
+    
+    .profile img{
+        width: 36px;
+    }
+}

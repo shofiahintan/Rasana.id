@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #D08A09;
+  --primary-dark: #745338;
+  --cream-bg: #FAEAD3;
+  --text-dark: #3E2E1D;
+  --facebook-blue: #3b5998;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+body {
+  background: linear-gradient(135deg, #FAEAD3, #F9E5C8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-page-container {
+  display: flex;
+  width: 90%;
+  max-width: 1150px;
+  height: 90vh;
+  background: transparent;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.illustration-panel {
+  flex: 1.1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  padding: 40px;
+}
+
+.main-illustration {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.form-panel {
+  flex: 0.9;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 70px;
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+}
+
+.login-form-box {
+  width: 100%;
+  max-width: 380px;
+}
+
+.logo-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-left: 8px;
+}
+
+.logo-id {
+  color: var(--primary-color);
+}
+
+.login-form input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 15px;
+  border: 1px solid #d8cdb8;
+  border-radius: 10px;
+  background-color: #fffdf9;
+  font-size: 0.95em;
+  transition: all 0.3s ease;
+}
+
+.login-form input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 4px rgba(208,138,9,0.25);
+}
+
+.btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.login-btn {
+  background-color: var(--primary-dark);
+  color: var(--white);
+  font-weight: 600;
+  margin-top: 10px;
+  font-size: 1em;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.login-btn:hover {
+  background-color: #5e3f28;
+  transform: translateY(-1px);
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #705539;
+  font-size: 0.9em;
+  margin: 25px 0;
+}
+
+.separator::before,
+.separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.separator:not(:empty)::before { margin-right: .75em; }
+.separator:not(:empty)::after { margin-left: .75em; }
+
+.facebook-btn {
+  background: #fff;
+  color: #5a432c;
+  border: 1px solid #ccc;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+}
+
+.facebook-btn:hover {
+  background: #f8f5f0;
+}
+
+.facebook-btn i {
+  color: var(--facebook-blue);
+}
+
+.forgot-password-link {
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+  color: #745338;
+  font-size: 0.9em;
+  text-decoration: none;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+.register-text {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 0.9em;
+  color: #745338;
+}
+
+.register-link {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .login-page-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .illustration-panel {
+    display: none;
+  }
+
+  .form-panel {
+    padding: 40px;
+  }
+}

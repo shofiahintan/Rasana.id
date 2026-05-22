@@ -1,0 +1,620 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ========== VARIABEL ========== */
+:root {
+  --light-cream: #FFFDF9;
+  --main-background: #F8F4EC;
+  --accent-dark: #754C24;
+  --accent-light: #F9DA62;
+  --text-dark: #3F3C3B;
+  --text-medium: #555555;
+  --text-light: #777777;
+  --border-light: #E0E0E0;
+  --sidebar-bg: #FFFFFF;
+  --sidebar-active-bg: #F5E6CC;
+  --header-button-bg: #FFFFFF;
+  --input-bg: #FFFFFF;
+  --email-add-btn: #3D8FFD;
+  --gradient-start: #745338;
+  --gradient-end: #F4C568;
+  --header-icon-outline-color: var(--accent-light);
+}
+
+/* ========== RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--main-background);
+  color: var(--text-dark);
+  font-size: 14px;
+}
+
+/* ========== SIDEBAR ========== */
+.sidebar {
+  width: 80px;
+  background: #fff;
+  height: 100vh;
+  padding: 20px 0;
+  border-radius: 0 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.06);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 20;
+}
+
+.sidebar .logo {
+  display: flex;
+  justify-content: center;
+  padding: 6px 0;
+}
+
+.sidebar img {
+  width: 40px;
+  display: block;
+}
+
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.side-menu a {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.side-menu a i {
+  font-size: 22px;
+  padding: 12px;
+  margin: 6px 0;
+  cursor: pointer;
+  border-radius: 12px;
+  color: #815e26;
+  transition: all 0.22s ease;
+  display: block;
+}
+
+.side-menu a i:hover {
+  background: #f5e7d3;
+  box-shadow: 0 8px 20px rgba(129, 94, 38, 0.12);
+}
+
+.profile img {
+  width: 44px;
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+}
+
+/* ========== MAIN CONTENT ========== */
+.main-content {
+  margin-left: 80px;
+  flex-grow: 1;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========== HEADER ========== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-greeting {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.header-date {
+  font-size: 12px;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-right a {
+  text-decoration: none;
+}
+
+.header-button {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--header-button-bg);
+  color: var(--accent-dark);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.header-button:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+.header-button i {
+  color: var(--header-button-bg);
+  text-shadow: -1px -1px 0 var(--header-icon-outline-color),
+               1px -1px 0 var(--header-icon-outline-color),
+               -1px 1px 0 var(--header-icon-outline-color),
+               1px 1px 0 var(--header-icon-outline-color);
+  line-height: 1;
+}
+
+.header-button a {
+  text-decoration: none;
+}
+
+.header-notification {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--header-button-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s;
+  line-height: 1;
+}
+
+.header-notification:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+}
+
+.header-notification i {
+  color: var(--header-button-bg);
+  font-size: 18px;
+  text-shadow: -1px -1px 0 var(--header-icon-outline-color),
+               1px -1px 0 var(--header-icon-outline-color),
+               -1px 1px 0 var(--header-icon-outline-color),
+               1px 1px 0 var(--header-icon-outline-color);
+}
+
+/* ========== TOP BANNER ========== */
+.top-banner {
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* ========== PROFILE CARD ========== */
+.profile-details-card {
+  background-color: var(--input-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.profile-summary {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.profile-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20px;
+  border: 4px solid white;
+  box-shadow: 0 0 0 1px var(--border-light);
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-info {
+  flex-grow: 1;
+}
+
+.profile-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+}
+
+.profile-email-summary {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.edit-button {
+  background-color: var(--accent-light);
+  color: var(--text-dark);
+  border: none;
+  padding: 8px 20px;
+  border-radius: 9px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 4px rgba(249, 218, 98, 0.4);
+}
+
+.edit-button:hover {
+  background-color: #f4c45a;
+}
+
+/* ========== FORM ========== */
+.form-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1 1 calc(50% - 10px);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-label {
+  font-size: 13px;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.form-input,
+.form-select {
+  padding: 10px 15px;
+  border: 1px solid var(--border-light);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--text-dark);
+  background-color: var(--input-bg);
+  outline: none;
+  transition: border-color 0.2s;
+  font-weight: 600;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23777777%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-6.5%200-12.3%203.2-16.1%208.1-3.9%204.9-3.9%2011.6%200%2016.6l128%20127.9c3.9%203.9%2011.6%203.9%2015.4%200l128-127.9c3.9-5%203.9-12.7%200-16.6z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px auto;
+}
+
+.form-input:focus,
+.form-select:focus {
+  border-color: var(--accent-light);
+  box-shadow: 0 0 0 1px var(--accent-light);
+}
+
+/* ========== EMAIL SECTION ========== */
+.email-section {
+  margin-top: 25px;
+  padding-top: 25px;
+  border-top: 1px solid var(--border-light);
+}
+
+.email-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+}
+
+.email-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.email-icon {
+  color: var(--accent-dark);
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.email-text-group {
+  flex-grow: 1;
+}
+
+.email-address {
+  font-size: 14px;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+  font-weight: 500;
+}
+
+.email-status {
+  font-size: 12px;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+.add-email-button {
+  background-color: transparent;
+  border: none;
+  color: var(--email-add-btn);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+
+.add-email-button:hover {
+  color: #2a7ae2;
+}
+
+.add-email-button i {
+  font-size: 16px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1150px) {
+  .sidebar {
+    width: 100%;
+    height: 70px;
+    border-radius: 0;
+    flex-direction: row;
+    padding: 0 20px;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+  
+  .sidebar .logo {
+    padding: 0;
+  }
+  
+  .side-menu {
+    flex-direction: row;
+    gap: 18px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .side-menu a i {
+    font-size: 20px;
+    padding: 10px;
+    margin: 0;
+  }
+  
+  .main-content {
+    margin-left: 0;
+    margin-top: 90px;
+    padding: 20px;
+  }
+  
+  .form-group {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .header-greeting {
+    font-size: 20px;
+  }
+  
+  .header-right {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .header-button {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+  
+  .profile-summary {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profile-avatar {
+    width: 60px;
+    height: 60px;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  
+  .profile-name {
+    font-size: 16px;
+  }
+  
+  .edit-button {
+    padding: 6px 15px;
+    font-size: 13px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    padding: 0 12px;
+    height: 65px;
+  }
+  
+  .sidebar img {
+    width: 34px;
+  }
+  
+  .side-menu a i {
+    font-size: 18px;
+    padding: 8px;
+  }
+  
+  .profile img {
+    width: 36px;
+  }
+  
+  .main-content {
+    padding: 14px;
+    margin-top: 80px;
+  }
+  
+  .header-right {
+    gap: 10px;
+  }
+  
+  .top-banner {
+    height: 100px;
+  }
+  
+  .profile-details-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-content {
+    padding: 10px;
+  }
+  
+  .header-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+  .header-notification {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+  
+  .edit-button {
+    width: 100%;
+  }
+}
+
+/* ========== POPUP KELUAR ========== */
+/* overlay gelap belakang popup */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35); /* anak smk: warna hitam transparan */
+  display: none; /* awalnya disembunyiin */
+  align-items: center;
+  justify-content: center;
+  z-index: 99; /* di atas konten lain */
+}
+
+/* class show buat nampilin popup */
+.modal-overlay.show {
+  display: flex;
+}
+
+/* kotak putih popup */
+.modal-box {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px 22px;
+  max-width: 320px;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  position: relative;
+}
+
+/* tombol X di pojok kanan atas */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* judul dan isi teks popup */
+.modal-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.modal-text {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 18px;
+}
+
+/* tempat tombol ya dan tidak */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* style dasar tombol di popup */
+.modal-btn {
+  border-radius: 8px;
+  border: none;
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* tombol tidak (abu) */
+.modal-no {
+  background: #f1f1f1;
+  color: #555555;
+}
+
+/* tombol ya (warna kuning biar nyambung tema) */
+.modal-yes {
+  background: var(--accent-light);
+  color: var(--text-dark);
+}
