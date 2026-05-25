@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kue Pukis Klasik - Pungky Satriani</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="user-pungky-satriani.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <img src="asset/logo2.png" alt="Feeds" class="logo-img">
+                <div class="logo-text">
+                    <span class="logo-name">Rasana.id</span>
+                </div>
+            </a>
+            <a href="home-page.php" class="nav-back">
+                <i class="ri-arrow-left-line"></i>
+                Kembali
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Left Sidebar - User Profile -->
+        <aside class="sidebar">
+            <div class="profile-card">
+                <img src="asset/profile.png" alt="Pungky Satriani" class="profile-avatar">
+                <h3 class="profile-name">Pungky Satriani</h3>
+                <p class="profile-location">
+                    <i class="ri-map-pin-line"></i>
+                    Banyumas, Jawa Tengah
+                </p>
+                <span class="profile-badge">Kang resep</span>
+                
+                <div class="profile-stats">
+                    <div class="stat">
+                        <span class="stat-value">24</span>
+                        <span class="stat-label">Resep</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">12.5K</span>
+                        <span class="stat-label">Followers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">4k</span>
+                        <span class="stat-label">Disukai</span>
+                    </div>
+                </div>
+                
+                <button class="btn-follow">
+                    <i class="ri-user-add-line"></i>
+                    Follow
+                </button>
+            </div>
+        </aside>
+
+        <!-- Center - Recipe Content -->
+        <section class="recipe-section">
+            <!-- Hero Image -->
+            <div class="recipe-hero">
+                <img src="asset/Rectangle 93.png" alt="Kue Pukis">
+                <div class="recipe-overlay">
+                    <span class="recipe-category">Resep</span>
+                    <h1 class="recipe-title">Kue Pukis Klasik Manis Legit</h1>
+                    <div class="recipe-stats">
+                        <span><i class="ri-heart-fill"></i> 4,000</span>
+                        <span><i class="ri-chat-1-line"></i> 620</span>
+                        <span><i class="ri-time-line"></i> 2 Minggu lalu</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Body -->
+            <div class="recipe-body">
+                <p class="recipe-desc">
+                    Siapa yang kangen jajanan klasik ini? Kue pukis dengan tekstur lembut, manis legit, dan topping cokelat atau keju yang melimpah. Resep turun temurun yang cocok untuk camilan sore!
+                </p>
+
+                <div class="recipe-actions">
+                    <button class="action-btn btn-primary">
+                        <i class="ri-heart-line"></i>
+                        Suka
+                    </button>
+                    <button class="action-btn btn-secondary">
+                        <i class="ri-share-forward-line"></i>
+                        Bagikan
+                    </button>
+                </div>
+
+                <!-- Ingredients & Steps -->
+                <div class="recipe-grid">
+                    <div class="recipe-box">
+                        <h3 class="box-title">
+                            <i class="ri-shopping-basket-line"></i>
+                            Bahan-Bahan
+                        </h3>
+                        <ul class="ingredient-list">
+                            <li>200 gr tepung terigu</li>
+                            <li>150 gr gula pasir</li>
+                            <li>3 butir telur</li>
+                            <li>250 ml santan kental</li>
+                            <li>1/2 sdt vanili</li>
+                            <li>1/4 sdt garam</li>
+                            <li>1/2 sdt baking powder</li>
+                            <li>Topping: cokelat/keju</li>
+                        </ul>
+                    </div>
+
+                    <div class="recipe-box">
+                        <h3 class="box-title">
+                            <i class="ri-file-list-3-line"></i>
+                            Cara Membuat
+                        </h3>
+                        <ol class="steps-list">
+                            <li>Kocok telur dan gula hingga mengembang</li>
+                            <li>Masukkan tepung, baking powder, garam</li>
+                            <li>Tuang santan, aduk rata</li>
+                            <li>Diamkan adonan 30 menit</li>
+                            <li>Panaskan cetakan, olesi margarin</li>
+                            <li>Tuang adonan, taburi topping</li>
+                            <li>Masak hingga matang 7-10 menit</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Tips -->
+                <div class="recipe-tips">
+                    <h3 class="box-title">
+                        <i class="ri-lightbulb-line"></i>
+                        Tips Sukses
+                    </h3>
+                    <ul class="tips-list">
+                        <li>Gunakan santan kental untuk hasil lebih gurih</li>
+                        <li>Jangan terlalu lama mengaduk agar tidak bantat</li>
+                        <li>Api kecil agar matang merata dan tidak gosong</li>
+                    </ul>
+                </div>
+
+                <!-- Comments -->
+                <div class="comments-wrapper">
+                    <h3 class="section-title">
+                        <i class="ri-chat-3-line"></i>
+                        Komentar (620)
+                    </h3>
+
+                    <div class="comments-list">
+                        <div class="comment-item">
+                            <img src="https://i.pravatar.cc/150?img=12" alt="User">
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <strong>Rina Kusuma</strong>
+                                    <span>1 hari lalu</span>
+                                </div>
+                                <p>Resepnya mudah diikuti! Langsung berhasil 😊</p>
+                            </div>
+                        </div>
+
+                        <div class="comment-item">
+                            <img src="https://i.pravatar.cc/150?img=23" alt="User">
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <strong>Budi Santoso</strong>
+                                    <span>3 hari lalu</span>
+                                </div>
+                                <p>Kue pukisnya lembut banget! Teksturnya pas 👍</p>
+                            </div>
+                        </div>
+
+                        <div class="comment-item">
+                            <img src="https://i.pravatar.cc/150?img=31" alt="User">
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <strong>Dewi Lestari</strong>
+                                    <span>5 hari lalu</span>
+                                </div>
+                                <p>Nostalgia masa kecil! Makasih resepnya!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment-form">
+                        <input type="text" placeholder="Tulis komentar...">
+                        <button>
+                            <i class="ri-send-plane-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

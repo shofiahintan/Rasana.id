@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #D08A09;
+  --primary-dark: #745338;
+  --cream-bg: #FAEAD3;
+  --text-dark: #3E2E1D;
+  --facebook-blue: #3b5998;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif ;
+}
+
+/* --- Latar dan posisi tengah layar --- */
+body {
+  background: linear-gradient(135deg, #FAEAD3, #F9E5C8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* --- Container utama --- */
+.register-page-container {
+  display: flex;
+  width: 90%;
+  max-width: 1100px;
+  height: 135vh; 
+  background: transparent;
+  border-radius: 24px;
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px; 
+}
+
+/* --- Panel ilustrasi --- */
+.illustration-panel {
+  flex: 1.1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  padding: 20px;
+}
+
+.main-illustration {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* --- Panel form --- */
+.form-panel {
+  flex: 0.9;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 60px 70px;
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+  height: 70%;
+  margin: 40px;
+}
+
+/* --- Kotak form --- */
+.register-form-box {
+  width: 100%;
+  max-width: 360px;
+}
+
+/* --- Logo header --- */
+.logo-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 35px; /* sedikit lebih renggang */
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+}
+
+.logo-text {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-left: 8px;
+}
+
+.logo-id {
+  color: var(--primary-color);
+}
+
+/* --- Input form --- */
+.register-form input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border: 1px solid #d8cdb8;
+  border-radius: 10px;
+  background-color: #fffdf9;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+}
+
+.register-form input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 4px rgba(208,138,9,0.25);
+}
+
+/* --- Tombol daftar --- */
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.register-btn {
+  background-color: var(--primary-dark);
+  color: var(--white);
+  font-weight: 600;
+  margin-top: 8px;
+  font-size: 0.95em;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.register-btn:hover {
+  background-color: #5e3f28;
+  transform: translateY(-1px);
+}
+
+/* --- Separator --- */
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #705539;
+  font-size: 0.9em;
+  margin: 22px 0;
+}
+
+.separator::before,
+.separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.separator:not(:empty)::before { margin-right: .75em; }
+.separator:not(:empty)::after { margin-left: .75em; }
+
+/* --- Facebook Button --- */
+.facebook-btn {
+  background: #fff;
+  color: #5a432c;
+  border: 1px solid #ccc;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  padding: 12px;
+  transition: 0.3s;
+}
+
+.facebook-btn:hover {
+  background: #f8f5f0;
+}
+
+.facebook-btn i {
+  color: var(--facebook-blue);
+}
+
+/* --- Link Login --- */
+.login-text {
+  text-align: center;
+  margin-top: 20px; 
+  font-size: 0.85em;
+  color: #745338;
+}
+
+.login-link {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+/* --- Responsif --- */
+@media (max-width: 900px) {
+  .register-page-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .illustration-panel {
+    display: none;
+  }
+
+}
