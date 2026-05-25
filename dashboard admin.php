@@ -12,12 +12,20 @@
 <!-- SIDEBAR ADMIN -->
 <aside class="admin-sidebar">
   <div class="admin-logo">
+<<<<<<< HEAD
     <a href="home-page.php"><img src="asset/logo2.png" alt="Rasana Logo"></a>
+=======
+    <a href="home-page.html"><img src="asset/logo2.png" alt="Rasana Logo"></a>
+>>>>>>> cb7d877800c6a89960560799dde12f5368374084
     <span>Rasana</span>
   </div>
 
   <nav class="admin-menu">
+<<<<<<< HEAD
     <a href="#"><i class="ri-dashboard-line"></i>Ringkasan</a>
+=======
+    <a href="#" class="active"><i class="ri-dashboard-line"></i>Ringkasan</a>
+>>>>>>> cb7d877800c6a89960560799dde12f5368374084
     <a href="#pengguna"><i class="ri-user-3-line"></i>Pengguna</a>
     <a href="#postingan"><i class="ri-file-list-3-line"></i>Postingan</a>
     <a href="#interaksi"><i class="ri-chat-1-line"></i>Interaksi</a>

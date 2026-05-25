@@ -17,7 +17,12 @@
           <img src="asset/logo2.png" alt="Logo" class="logo-img">
           <h1 class="logo-text">Rasana<span class="logo-id">.id</span></h1>
         </div>
+<<<<<<< HEAD
         <form class="register-form" action="home-page.php" method="GET">
+=======
+    <div class="register-form-box">
+        <form class="register-form" action="home-page.html" method="GET">
+>>>>>>> cb7d877800c6a89960560799dde12f5368374084
             <input type="text" placeholder="Nama Lengkap" required>
             <input type="email" placeholder="Email" required>
             <input type="text" placeholder="Username" required>
@@ -30,9 +35,14 @@
           <i class="fa-brands fa-facebook-f"></i>
           Daftar dengan Facebook
         </button>
+<<<<<<< HEAD
         <p class="login-text">Sudah punya akun? <a href="login.php" class="login-link">Masuk</a></p>
       </div>
     </div>
   </div>
 </body>
 </html>
+=======
+        <p class="login-text">Sudah punya akun? <a href="login.html" class="login-link">Masuk</a></p>
+</body>
+>>>>>>> cb7d877800c6a89960560799dde12f5368374084

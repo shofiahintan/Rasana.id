@@ -87,6 +87,7 @@ body{
     background:#f5e7d3;
     box-shadow:0 8px 20px rgba(129,94,38,0.12);
 }
+<<<<<<< HEAD
 .side-menu a.active i{
     background:#f5e7d3;
     color:#5a3e10;
@@ -106,6 +107,8 @@ body{
     background:#815e26;
     border-radius:0 4px 4px 0;
 }
+=======
+>>>>>>> cb7d877800c6a89960560799dde12f5368374084
 
 .profile img{
     width:44px;
