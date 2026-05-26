@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rasana.id - Jelajahi Cita Rasa Nusantara</title>
-    <link rel="stylesheet" href="landingpage.css">
+    <link rel="stylesheet" href="landingpage.css?v=1.2">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
@@ -19,10 +19,10 @@
                 <a href="#">Rasana<span>.id</span></a>
             </div>
             <ul class="nav_links">
-                <li><a href="#Fitur">Fitur</a></li>
+                <li><a href="#beranda">Fitur</a></li>
                 <li><a href="#jelajahi">Jelajahi</a></li>
-                <li><a href="#Tentang">Tentang</a></li>
-                <li><a href="#Bantuan">Bantuan</a></li>
+                <li><a href="#why">Tentang</a></li>
+                <li><a href="#why">Bantuan</a></li>
             </ul>
             <div class="nav_btn">
                 <a href="login.php" class="btn">Masuk</a>
@@ -88,7 +88,7 @@
     </section>
 
     <section class="why_choose" id="why">
-        <div class="container">
+        <div class="container_why">
             <h2>Mengapa Memilih <span>Rasana.id</span></h2>
             <div class="reasons">
                 <div class="reason_card">
@@ -132,8 +132,8 @@
                 <h2>Siap Memulai Petualangan <br><span>Kuliner?</span></h2>
                 <p>Bergabunglah dengan ribuan pecinta kuliner Indonesia dan mulai berbagi cerita makanan Anda hari ini.</p>
                 <div class="cta_buttons">
-                    <a href="daftar.php"><button class="btn btn_primary">Daftar</button></a>
-                    <a href="login.php"><button class="btn btn_outline">Sudah punya akun?</button></a>
+                    <a href="daftar.php" class="btn btn_primary">Daftar</a>
+                    <a href="login.php" class="btn btn_outline">Sudah punya akun?</a>
                 </div>
             </div>
             <div class="cta_image">
@@ -145,14 +145,14 @@
 
     <footer class="footer_section">
         <div class="footer_container">
-            <div class="footer_about">
+            <div class="footer_col footer_about">
                 <h3>Rasana<span>.id</span></h3>
-                <p>Platform media sosial kuliner Indonesia terlengkap <br> untuk berbagi dan menemukan <br> cita rasa nusantara.</p>
+                <p>Platform media sosial kuliner Indonesia terlengkap untuk berbagi dan menemukan cita rasa nusantara.</p>
             </div>
             
-            <div class="footer_links">
+            <div class="footer_col">
                 <h4>Fitur</h4>
-                <ul>
+                <ul class="footer_list">
                     <li><a href="#beranda">Beranda</a></li>
                     <li><a href="#jelajahi">Jelajahi</a></li>
                     <li><a href="#why">Peta Kuliner</a></li>
@@ -160,9 +160,9 @@
                 </ul>
             </div>
 
-            <div class="footer_social">
+            <div class="footer_col">
                 <h4>Komunitas</h4>
-                <ul>
+                <ul class="footer_list">
                     <li><a href="#"><i class="ri-facebook-circle-fill"></i> Facebook</a></li>
                     <li><a href="#"><i class="ri-instagram-line"></i> Instagram</a></li>
                     <li><a href="#"><i class="ri-twitter-x-fill"></i> Twitter</a></li>
@@ -170,9 +170,9 @@
                 </ul>
             </div>
 
-            <div class="footer_help">
+            <div class="footer_col">
                 <h4>Bantuan</h4>
-                <ul>
+                <ul class="footer_list">
                     <li><a href="#">FAQ</a></li>
                     <li><a href="#">Kontak</a></li>
                     <li><a href="#">Kebijakan Privasi</a></li>

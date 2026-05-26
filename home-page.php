@@ -1,3 +1,7 @@
+<?php
+include 'auth/session_check.php';
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>

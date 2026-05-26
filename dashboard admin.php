@@ -15,7 +15,7 @@
 <<<<<<< HEAD
     <a href="home-page.php"><img src="asset/logo2.png" alt="Rasana Logo"></a>
 =======
-    <a href="home-page.html"><img src="asset/logo2.png" alt="Rasana Logo"></a>
+    <a href="home-page.php"><img src="asset/logo2.png" alt="Rasana Logo"></a>
 >>>>>>> cb7d877800c6a89960560799dde12f5368374084
     <span>Rasana</span>
   </div>
