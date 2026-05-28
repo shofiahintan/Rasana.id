@@ -14,26 +14,26 @@
 
     <div class="container">
         
-       <!-- SIDEBAR -->
-<div class="sidebar">
-    <div class="logo">
-    <a href="dashboard admin.php"><img src="asset/logo2.png" alt="logo"></a>
-    </div>
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <div class="logo">
+                <a href="dashboard admin.php"><img src="asset/logo2.png" alt="logo"></a>
+            </div>
 
-    <div class="side-menu">
-        <a href="search.php"><i class="ri-global-line"></i></a>
-        <a href="home-page.php"><i class="ri-home-4-line"></i></a>
-        <a href="posting.php" class="active"><i class="ri-add-line"></i></a>
-        <a href="map.php"><i class="ri-map-pin-line"></i></a>
-        <a href="notification.php"><i class="ri-notification-3-line"></i></a>
-        <a href="profilesetting.php"><i class="ri-settings-3-line"></i></a>
-    </div>
-    <div class="profile">
-        <a href="profilesetting.php">
-            <img src="asset/Ellipse 11.png" alt="profile">
-        </a>
-    </div>
-</div>
+            <div class="side-menu">
+                <a href="search.php"><i class="ri-global-line"></i></a>
+                <a href="home-page.php"><i class="ri-home-4-line"></i></a>
+                <a href="posting.php" class="active"><i class="ri-add-line"></i></a>
+                <a href="map.php"><i class="ri-map-pin-line"></i></a>
+                <a href="notification.php"><i class="ri-notification-3-line"></i></a>
+                <a href="profilesetting.php"><i class="ri-settings-3-line"></i></a>
+            </div>
+            <div class="profile">
+                <a href="profilesetting.php">
+                    <img src="asset/Ellipse 11.png" alt="profile">
+                </a>
+            </div>
+        </div>
         
         <main class="main-content">
             
@@ -70,27 +70,71 @@
                 </div>
 
                 <div class="form-section location-section">
-                    <label class="form-label">Location</label>
+    <label class="form-label">Location</label>
 
-                    <div class="custom-select-wrapper">
-                        <div id="custom-location-select" class="custom-select-trigger">
-                            <span id="selected-location">Lamongan, Jawa Timur</span>
-                            <i class="ri-arrow-down-s-line select-arrow"></i>
-                        </div>
+    <div class="custom-select-wrapper">
+        <div id="custom-location-select" class="custom-select-trigger">
+            <span id="selected-location">Pilih Daerah</span>
+            <i class="ri-arrow-down-s-line select-arrow"></i>
+        </div>
 
-                        <div class="custom-options" id="locationOptions">
-                            <div class="custom-option" data-value="lamongan">Lamongan, Jawa Timur</div>
-                            <div class="custom-option" data-value="malang">Malang, Jawa Timur</div>
-                            <div class="custom-option" data-value="tasikmalaya">Tasikmalaya, Jawa Barat</div>
-                        </div>
-                    </div>
-                </div>
-                <a href = "unggahan.php"><button class="create-events-btn">Buat Postingan</button></a>
+        <!-- DAFTAR DAERAH SE-INDONESIA SESUAI PETA -->
+     <!-- DAFTAR 34 PROVINSI LENGKAP SE-INDONESIA -->
+<div class="custom-options" id="locationOptions" style="max-height: 250px; overflow-y: auto;">
+    <!-- Sumatra -->
+    <div class="custom-option" data-value="aceh">Aceh</div>
+    <div class="custom-option" data-value="sumut">Sumatera Utara</div>
+    <div class="custom-option" data-value="sumbar">Sumatera Barat</div>
+    <div class="custom-option" data-value="riau">Riau</div>
+    <div class="custom-option" data-value="kepri">Kepulauan Riau</div>
+    <div class="custom-option" data-value="jambi">Jambi</div>
+    <div class="custom-option" data-value="sumsel">Sumatera Selatan</div>
+    <div class="custom-option" data-value="babel">Kepulauan Bangka Belitung</div>
+    <div class="custom-option" data-value="bengkulu">Bengkulu</div>
+    <div class="custom-option" data-value="lampung">Lampung</div>
+    
+    <!-- Jawa -->
+    <div class="custom-option" data-value="jakarta">DKI Jakarta</div>
+    <div class="custom-option" data-value="banten">Banten</div>
+    <div class="custom-option" data-value="jabar">Jawa Barat</div>
+    <div class="custom-option" data-value="jateng">Jawa Tengah</div>
+    <div class="custom-option" data-value="yogyakarta">DI Yogyakarta</div>
+    <div class="custom-option" data-value="jatim">Jawa Timur</div>
+    
+    <!-- Bali & Nusa Tenggara -->
+    <div class="custom-option" data-value="bali">Bali</div>
+    <div class="custom-option" data-value="ntb">Nusa Tenggara Barat</div>
+    <div class="custom-option" data-value="ntt">Nusa Tenggara Timur</div>
+    
+    <!-- Kalimantan -->
+    <div class="custom-option" data-value="kalbar">Kalimantan Barat</div>
+    <div class="custom-option" data-value="kalteng">Kalimantan Tengah</div>
+    <div class="custom-option" data-value="kalsel">Kalimantan Selatan</div>
+    <div class="custom-option" data-value="kaltim">Kalimantan Timur</div>
+    <div class="custom-option" data-value="kalra">Kalimantan Utara</div>
+    
+    <!-- Sulawesi -->
+    <div class="custom-option" data-value="sulut">Sulawesi Utara</div>
+    <div class="custom-option" data-value="sulteng">Sulawesi Tengah</div>
+    <div class="custom-option" data-value="sulsel">Sulawesi Selatan</div>
+    <div class="custom-option" data-value="sultra">Sulawesi Tenggara</div>
+    <div class="custom-option" data-value="gorontalo">Gorontalo</div>
+    <div class="custom-option" data-value="sulbar">Sulawesi Barat</div>
+    
+    <!-- Maluku & Papua -->
+    <div class="custom-option" data-value="maluku">Maluku</div>
+    <div class="custom-option" data-value="malut">Maluku Utara</div>
+    <div class="custom-option" data-value="papuabarat">Papua Barat</div>
+    <div class="custom-option" data-value="papua">Papua</div>
+</div>
+    </div>
+</div>           <!-- TOMBOL YANG SUDAH DIPERBAIKI STRUKTURNYA -->
+                <a href="unggahan.php" class="create-events-btn" style="text-align: center; display: block; text-decoration: none; line-height: 2.5;">Buat Postingan</a>
             </div>
         </main>
     </div>
 
-    <script>
+<script>
 document.addEventListener('DOMContentLoaded', function () {
 
     const uploadArea = document.getElementById('imageUploadArea');
@@ -98,15 +142,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     uploadArea.addEventListener('click', () => uploadInput.click());
 
-   uploadInput.addEventListener('change', function(e) {
+    uploadInput.addEventListener('change', function(e) {
+        const uploadIcon = uploadArea.querySelector('.upload-icon');
+        if (uploadIcon) uploadIcon.style.display = 'none';
 
-    const uploadIcon = uploadArea.querySelector('.upload-icon');
-    if (uploadIcon) uploadIcon.style.display = 'none';
+        const file = e.target.files[0];
 
-    const file = e.target.files[0];
-
-});
-
+        // LOGIKA PENGECEKAN FILE SEKARANG SUDAH BERADA DI DALAM FUNGSI YANG BENAR
         if (file) {
             const reader = new FileReader();
             reader.onload = (e) => {
@@ -120,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
             reader.readAsDataURL(file);
         }
-    });
+    }); // penutup addEventListener change yang benar
 
     function setupSelect(triggerId, optionsId, selectedId) {
         const trigger = document.getElementById(triggerId);
@@ -132,9 +174,11 @@ document.addEventListener('DOMContentLoaded', function () {
             e.stopPropagation();
             options.classList.toggle('show');
 
-            arrow.className = options.classList.contains('show')
-                ? "ri-arrow-up-s-line select-arrow"
-                : "ri-arrow-down-s-line select-arrow";
+            if(arrow) {
+                arrow.className = options.classList.contains('show')
+                    ? "ri-arrow-up-s-line select-arrow"
+                    : "ri-arrow-down-s-line select-arrow";
+            }
         });
 
         options.querySelectorAll('.custom-option').forEach(opt => {
@@ -142,13 +186,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 e.stopPropagation();
                 selected.textContent = opt.textContent;
                 options.classList.remove('show');
-                arrow.className = "ri-arrow-down-s-line select-arrow";
+                if(arrow) arrow.className = "ri-arrow-down-s-line select-arrow";
             });
         });
 
         document.addEventListener('click', () => {
             options.classList.remove('show');
-            arrow.className = "ri-arrow-down-s-line select-arrow";
+            if(arrow) arrow.className = "ri-arrow-down-s-line select-arrow";
         });
     }
 

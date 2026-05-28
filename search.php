@@ -11,7 +11,7 @@
 
 <div class="sidebar">
     <div class="logo">
-    <a href="dashboard admin.php"><img src="asset/logo2.png" alt="logo"></a>
+        <a href="dashboard admin.php"><img src="asset/logo2.png" alt="logo"></a>
     </div>
 
     <div class="side-menu">
@@ -36,40 +36,33 @@
         <h1>Apa yang ingin anda cari hari ini ?</h1>
         <p>Jelajahi resep, cerita, dan review kuliner dari komunitas kami</p>
 
-    <!-- Ini form pencarian -->
-    <form class="search-box" action="search-rendang.php" method="get">
+        <form class="search-box" id="searchForm" onsubmit="return false;">
+            <input type="text" id="searchInput" placeholder="Cari ‘rendang padang’ atau ‘warteg terdekat’">
+            <button type="button" id="searchBtn">
+                <i class="ri-search-line"></i> Cari
+            </button>
+        </form>
 
-        <!-- Input tempat kita ngetik apa yang mau dicari -->
-        <input type="text" name="q" placeholder="Cari ‘rendang padang’ atau ‘warteg terdekat’">
-
-        <!-- Tombol buat ngejalanin pencarian -->
-        <button type="submit">
-        <i class="ri-search-line"></i> Cari
-        </button>
-    </form>
-
-
-        <div class="filter">
-            <button class="active"><i class="ri-grid-fill"></i> Semua</button>
-            <button><i class="ri-restaurant-line"></i> Resep</button>
-            <button><i class="ri-star-smile-line"></i> Review</button>
-            <button><i class="ri-chat-1-line"></i> Cerita</button>
+        <div class="filter" id="filterContainer">
+            <button class="active" data-category="semua"><i class="ri-grid-fill"></i> Semua</button>
+            <button data-category="resep"><i class="ri-restaurant-line"></i> Resep</button>
+            <button data-category="review"><i class="ri-star-smile-line"></i> Review</button>
+            <button data-category="cerita"><i class="ri-chat-1-line"></i> Cerita</button>
         </div>
 
         <p class="popular">Pencarian populer</p>
-
-        <div class="tags">
-            <span>Rendang Padang</span>
-            <span>Nasi Gudeg</span>
-            <span>Sate Ayam</span>
-            <span>Bakso Malang</span>
+        <div class="tags" id="popularTags">
+            <span class="popular-tag">Kue Pukis</span>
+            <span class="popular-tag">Rawon</span>
+            <span class="popular-tag">Rendang Padang</span>
+            <span class="popular-tag">Sate Ayam</span>
         </div>
     </div>
 
-    <div class="cards">
+    <div class="cards" id="cardsContainer">
 
-        <!-- CARD 1 - RESEP (diberi tombol) -->
-        <div class="card">
+        <!-- CARD 1: RESEP KUE PUKIS -->
+        <div class="card" data-category="resep">
             <div class="card-header">
                 <img src="asset/profile.png" alt="">
                 <div>
@@ -89,10 +82,9 @@
 
             <div class="card-body">
                 <p class="likes">4,000 likes</p>
-                <p>Siapa yang kangen jajanan klasik ini? Kue pukis, manis legit dengan tekstur lembut...</p>
+                <p class="card-title">Siapa yang kangen jajanan klasik ini? Kue pukis, manis legit dengan tekstur lembut...</p>
                 <p class="meta">Lihat semua 620 comments</p>
 
-                <!-- KOMENTAR CARD 1 -->
                 <div class="comment-box">
                     <div class="comment-header-row">
                         <span class="comment-title">Komentar</span>
@@ -106,16 +98,6 @@
                                     <span class="comment-date">2 minggu yang lalu</span>
                                 </div>
                                 <div class="comment-text">Aduh nostalgia banget, dulu tiap pulang sekolah pasti beli pukis di depan gerbang 😍</div>
-                            </div>
-                        </div>
-                        <div class="comment-item">
-                            <img src="asset/pro2.png" class="comment-avatar-img" alt="Rizky H.">
-                            <div class="comment-bubble">
-                                <div class="comment-top">
-                                    <span class="comment-name">Rizky H.</span>
-                                    <span class="comment-date">1 minggu yang lalu</span>
-                                </div>
-                                <div class="comment-text">Teksturnya keliatan lembut banget, resepnya dong kak 🙏</div>
                             </div>
                         </div>
                     </div>
@@ -133,8 +115,8 @@
             </div>
         </div>
 
-        <!-- CARD 2 - CERITA KULINER (diberi tombol) -->
-        <div class="card">
+        <!-- CARD 2: CERITA TEKWAN -->
+        <div class="card" data-category="cerita">
             <div class="card-header">
                 <img src="asset/profile 2.png" alt="">
                 <div>
@@ -154,10 +136,9 @@
 
             <div class="card-body">
                 <p class="likes">3,000 likes</p>
-                <p>Bukan cuma pempek, Palembang punya tekwan yang hangat & bersejarah...</p>
+                <p class="card-title">Bukan cuma pempek, Palembang punya tekwan yang hangat & bersejarah...</p>
                 <p class="meta">Lihat semua 520 comments</p>
 
-                <!-- KOMENTAR CARD 2 -->
                 <div class="comment-box">
                     <div class="comment-header-row">
                         <span class="comment-title">Komentar</span>
@@ -171,16 +152,6 @@
                                     <span class="comment-date">2 minggu yang lalu</span>
                                 </div>
                                 <div class="comment-text">Baru tau sejarah tekwan ternyata sedalem itu, jadi pengen ke Palembang lagi 😭</div>
-                            </div>
-                        </div>
-                        <div class="comment-item">
-                            <img src="asset/pro4.png" class="comment-avatar-img" alt="Fajar Ananda">
-                            <div class="comment-bubble">
-                                <div class="comment-top">
-                                    <span class="comment-name">Fajar Ananda</span>
-                                    <span class="comment-date">1 minggu yang lalu</span>
-                                </div>
-                                <div class="comment-text">Setuju! Kuah tekwan hangat-hangat gitu paling enak dimakan pas hujan 🌧️</div>
                             </div>
                         </div>
                     </div>
@@ -198,8 +169,8 @@
             </div>
         </div>
 
-        <!-- CARD 3 - REVIEW -->
-        <div class="card">
+        <!-- CARD 3: REVIEW BATAGOR -->
+        <div class="card" data-category="review">
             <div class="card-header">
                 <img src="asset/profile 3.png" alt="">
                 <div>
@@ -219,10 +190,9 @@
 
             <div class="card-body">
                 <p class="likes">6,200 likes</p>
-                <p>Batagor legendaris Bandung dengan bumbu kacang gurih dan sambal pedas manis. Renyah di luar, lembut di dalam!</p>
+                <p class="card-title">Batagor legendaris Bandung dengan bumbu kacang gurih dan sambal pedas manis. Renyah di luar, lembut di dalam!</p>
                 <p class="meta">Lihat semua 220 comments</p>
 
-                <!-- KOMENTAR CARD 3 -->
                 <div class="comment-box">
                     <div class="comment-header-row">
                         <span class="comment-title">Komentar</span>
@@ -238,16 +208,6 @@
                                 <div class="comment-text">Ini batagor favoritku juga! Bumbunya ngga pelit sama sekali 😋</div>
                             </div>
                         </div>
-                        <div class="comment-item">
-                            <img src="asset/pro2.png" class="comment-avatar-img" alt="Mega Lestari">
-                            <div class="comment-bubble">
-                                <div class="comment-top">
-                                    <span class="comment-name">Mega Lestari</span>
-                                    <span class="comment-date">6 hari yang lalu</span>
-                                </div>
-                                <div class="comment-text">Review-nya lengkap banget, next ke Bandung wajib mampir sini.</div>
-                            </div>
-                        </div>
                     </div>
                     <div class="comment-form">
                         <img src="asset/Ellipse 11.png" class="comment-avatar-img comment-avatar-me" alt="Profil kamu">
@@ -258,15 +218,15 @@
 
                 <div class="time-row">
                     <p class="time">1 Minggu yang lalu</p>
-                    <!-- no button -->
+                    <a href="user_dewi_hartati.php" class="blog-btn">Lihat</a>
                 </div>
             </div>
         </div>
 
-        <!-- CARD 4 - CERITA KULINER (diberi tombol) -->
-        <div class="card">
+        <!-- CARD 4: CERITA JOGJA -->
+        <div class="card" data-category="cerita">
             <div class="card-header">
-                <img src="asset/profile 4.png" alt="">
+                <img src="asset/profilefor5.jpg" alt="">
                 <div>
                     <h4>Rian Saputra</h4>
                     <p>Yogyakarta</p>
@@ -274,7 +234,7 @@
                 <span class="tag story">Cerita Kuliner</span>
             </div>
 
-            <img class="card-img" src="asset/Nasi Gudeg.jpg" alt="">
+            <img class="card-img" src="asset/tidakhanyagudeg.jpeg" alt="">
 
             <div class="card-icon">
                 <i class="ri-heart-line"></i>
@@ -284,10 +244,9 @@
 
             <div class="card-body">
                 <p class="likes">5,100 likes</p>
-                <p>Jogja bukan hanya gudeg. Ada banyak cerita di balik jajanan legendaris...</p>
+                <p class="card-title">Jogja bukan hanya gudeg. Ada banyak cerita di balik jajanan legendaris...</p>
                 <p class="meta">Lihat semua 340 comments</p>
 
-                <!-- KOMENTAR CARD 4 -->
                 <div class="comment-box">
                     <div class="comment-header-row">
                         <span class="comment-title">Komentar</span>
@@ -301,16 +260,6 @@
                                     <span class="comment-date">3 minggu yang lalu</span>
                                 </div>
                                 <div class="comment-text">Jogja emang selalu punya cerita, bahkan dari makanan pinggir jalannya ❤️</div>
-                            </div>
-                        </div>
-                        <div class="comment-item">
-                            <img src="asset/pro4.png" class="comment-avatar-img" alt="Yoga P.">
-                            <div class="comment-bubble">
-                                <div class="comment-top">
-                                    <span class="comment-name">Yoga P.</span>
-                                    <span class="comment-date">2 minggu yang lalu</span>
-                                </div>
-                                <div class="comment-text">Baca ini jadi inget pertama kali touring ke Jogja cuma buat kulineran.</div>
                             </div>
                         </div>
                     </div>
@@ -328,8 +277,8 @@
             </div>
         </div>
 
-        <!-- CARD 5 - RESEP (diberi tombol) -->
-        <div class="card">
+        <!-- CARD 5: RESEP RAWON -->
+        <div class="card" data-category="resep">
             <div class="card-header">
                 <img src="asset/profile 5.png" alt="">
                 <div>
@@ -349,10 +298,9 @@
 
             <div class="card-body">
                 <p class="likes">1,800 likes</p>
-                <p>Resep rawon khas Jawa Timur, kuah hitam gurih dengan daging empuk </p>
+                <p class="card-title">Resep rawon khas Jawa Timur, kuah hitam gurih dengan daging empuk</p>
                 <p class="meta">Lihat semua 110 comments</p>
 
-                <!-- KOMENTAR CARD 5 -->
                 <div class="comment-box">
                     <div class="comment-header-row">
                         <span class="comment-title">Komentar</span>
@@ -366,16 +314,6 @@
                                     <span class="comment-date">3 hari yang lalu</span>
                                 </div>
                                 <div class="comment-text">Rawon-nya keliatan pekat banget, ini pake kluwek favoritku kayaknya 🤤</div>
-                            </div>
-                        </div>
-                        <div class="comment-item">
-                            <img src="asset/pro2.png" class="comment-avatar-img" alt="Bagus Prasetyo">
-                            <div class="comment-bubble">
-                                <div class="comment-top">
-                                    <span class="comment-name">Bagus Prasetyo</span>
-                                    <span class="comment-date">2 hari yang lalu</span>
-                                </div>
-                                <div class="comment-text">Sudah coba resepnya, rasanya mirip banget rawon langganan di Surabaya!</div>
                             </div>
                         </div>
                     </div>
@@ -393,8 +331,8 @@
             </div>
         </div>
 
-        <!-- CARD 6 - REVIEW (tanpa tombol) -->
-        <div class="card">
+        <!-- CARD 6: REVIEW BIKA AMBON -->
+        <div class="card" data-category="review">
             <div class="card-header">
                 <img src="asset/profile 6.png" alt="">
                 <div>
@@ -414,10 +352,9 @@
 
             <div class="card-body">
                 <p class="likes">2,900 likes</p>
-                <p>Bika ambon legit dari toko lama di Medan ini masih juara sampai sekarang 🔥🔥</p>
+                <p class="card-title">Bika ambon legit dari toko lama di Medan ini masih juara sampai sekarang 🔥🔥</p>
                 <p class="meta">Lihat semua 260 comments</p>
 
-                <!-- KOMENTAR CARD 6 -->
                 <div class="comment-box">
                     <div class="comment-header-row">
                         <span class="comment-title">Komentar</span>
@@ -433,16 +370,6 @@
                                 <div class="comment-text">Langganan titip bika ambon dari Medan ke Jakarta, toko ini emang nggak pernah gagal.</div>
                             </div>
                         </div>
-                        <div class="comment-item">
-                            <img src="asset/pro4.png" class="comment-avatar-img" alt="Jonathan">
-                            <div class="comment-bubble">
-                                <div class="comment-top">
-                                    <span class="comment-name">Jonathan</span>
-                                    <span class="comment-date">4 hari yang lalu</span>
-                                </div>
-                                <div class="comment-text">Teksturnya keliatan bersarang banget, persis yang asli Medan!</div>
-                            </div>
-                        </div>
                     </div>
                     <div class="comment-form">
                         <img src="asset/Ellipse 11.png" class="comment-avatar-img comment-avatar-me" alt="Profil kamu">
@@ -453,34 +380,141 @@
 
                 <div class="time-row">
                     <p class="time">5 Hari yang lalu</p>
-                    <!-- no button -->
+                    <a href="user-ari-pratama.php" class="blog-btn">Lihat</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+<!-- CONTAINER EMPTY STATE -->
+<div id="noMatchMessage" style="display:none; text-align:center; margin-top:20px; color:#6b5031; font-weight:500;">
+    <i class="ri-emotion-sad-line" style="font-size: 30px; display:block; margin-bottom:8px;"></i>
+    Ups! Kuliner yang kamu cari tidak ditemukan.
+</div>
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
 
-    // ====== BAGIAN 2: FITUR LIKE (IKON HATI BERUBAH BENTUK & WARNA) ======
+    // =========================================================================
+    // FITUR INTEGRASI: PENCARIAN KATA KUNCI & FILTER KATEGORI
+    // =========================================================================
+    const cards = document.querySelectorAll('.cards .card');
+    const filterButtons = document.querySelectorAll('#filterContainer button');
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    const popularTags = document.querySelectorAll('.popular-tag');
+    const noMatchMessage = document.getElementById('noMatchMessage');
+    const cardsContainer = document.getElementById('cardsContainer');
 
-    // ngambil semua icon hati di setiap card (baik yang line maupun fill)
+    // Variabel state global halaman pencarian
+    let activeCategory = 'semua';
+    let currentSearchQuery = '';
+
+    // Fungsi Utama Kombinasi Filter & Search
+    function applyFilterAndSearch() {
+        let hasVisibleCard = false;
+
+        cards.forEach(card => {
+            const cardCategory = card.dataset.category;
+            
+            // Mengambil teks dari judul/deskripsi, nama pembuat, dan wilayah untuk dicari
+            const cardTitle = card.querySelector('.card-title')?.textContent.toLowerCase() || '';
+            const authorName = card.querySelector('.card-header h4')?.textContent.toLowerCase() || '';
+            const locationName = card.querySelector('.card-header p')?.textContent.toLowerCase() || '';
+            
+            // Cek kecocokan Kategori
+            const matchCategory = (activeCategory === 'semua' || cardCategory === activeCategory);
+            
+            // Cek kecocokan Kata Kunci
+            const matchQuery = cardTitle.includes(currentSearchQuery) || 
+                               authorName.includes(currentSearchQuery) || 
+                               locationName.includes(currentSearchQuery);
+
+            // Jika dua-duanya cocok, tampilkan card
+            if (matchCategory && matchQuery) {
+                card.style.display = 'flex';
+                hasVisibleCard = true;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // Menampilkan pesan jika tidak ada makanan yang cocok
+        if (!hasVisibleCard) {
+            if(!cardsContainer.contains(noMatchMessage)) {
+                cardsContainer.after(noMatchMessage);
+            }
+            noMatchMessage.style.display = 'block';
+        } else {
+            noMatchMessage.style.display = 'none';
+        }
+    }
+
+    // 1. Logika Klik Tombol Kategori Bulat Tengah (Sudah Disisipkan Fitur Reset Pencarian)
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            // Reset kata kunci dan kosongkan input search saat ganti kategori kuliner
+            searchInput.value = ''; 
+            currentSearchQuery = '';
+
+            activeCategory = this.dataset.category;
+            applyFilterAndSearch();
+        });
+    });
+
+    // 2. Logika Mengetik / Eksekusi Pencarian
+    function triggerSearch() {
+        currentSearchQuery = searchInput.value.toLowerCase().trim();
+        applyFilterAndSearch();
+    }
+
+    // Eksekusi pas tombol "Cari" diklik
+    searchBtn.addEventListener('click', triggerSearch);
+
+    // Eksekusi pas user tekan tombol "Enter" di keyboard
+    searchInput.addEventListener('keyup', function(e) {
+        if (e.key === 'Enter') {
+            triggerSearch();
+        }
+    });
+
+    // 3. Logika Klik "Pencarian Populer" (Kue Pukis, Rawon, dll)
+    popularTags.forEach(tag => {
+        tag.style.cursor = 'pointer'; 
+        tag.addEventListener('click', function() {
+            const selectedText = this.textContent;
+            searchInput.value = selectedText; 
+            triggerSearch(); 
+        });
+    });
+
+    // =========================================================================
+    // CODE BARU: DETEKSI PARAMETER PENCARIAN DARI HALAMAN LAIN (BERANDA)
+    // =========================================================================
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get('q'); 
+
+    if (searchParam) {
+        searchInput.value = searchParam; 
+        currentSearchQuery = searchParam.toLowerCase().trim();
+        applyFilterAndSearch(); 
+    }
+
+    // ====== BAGIAN 2: FITUR LIKE (IKON HATI BERUBAH BENTUK & WARNA) ======
     const likeIcons = document.querySelectorAll('.card-icon .ri-heart-line, .card-icon .ri-heart-fill');
 
-    // looping semua icon hati
     likeIcons.forEach(function (icon) {
-      // pas icon hati diklik
       icon.addEventListener('click', function () {
-        // toggle class "liked" (kalau belum ada → ditambah, kalau ada → dihapus)
         const isLiked = this.classList.toggle('liked');
 
-        // kalau lagi posisi "liked" → ganti icon jadi hati isi (fill)
         if (isLiked) {
           this.classList.remove('ri-heart-line');
           this.classList.add('ri-heart-fill');
         } else {
-          // kalau batal like → ganti lagi ke hati outline
           this.classList.remove('ri-heart-fill');
           this.classList.add('ri-heart-line');
         }
@@ -488,43 +522,27 @@
     });
 
     // ====== BAGIAN 3: FITUR COMMENT (BUKA/TUTUP BOX KOMENTAR + TAMBAH KOMENTAR) ======
-
-    // ngambil semua icon chat (komentar) di setiap card
     const commentIcons = document.querySelectorAll('.card-icon .ri-chat-1-line');
 
-    // looping tiap icon komentar
     commentIcons.forEach(function (icon) {
-      // pas icon komentar diklik
       icon.addEventListener('click', function () {
-        // cari elemen .card terdekat dari icon yang diklik (biar komentarnya sesuai card-nya)
         const card = this.closest('.card');
-        if (!card) return; // kalau nggak ketemu card, stop
+        if (!card) return;
 
-        // dari card yang ketemu, ambil box komentar di dalamnya
         const box = card.querySelector('.comment-box');
-        if (!box) return; // kalau nggak ada comment-box, stop
+        if (!box) return;
 
-        // inisialisasi event input & tombol cuma sekali (biar nggak dobel-dobel)
         if (!box.dataset.init) {
-            // ambil input tempat kita ngetik komentar
             const input = box.querySelector('.comment-input');
-            // ambil tombol kirim
             const sendBtn = box.querySelector('.comment-send');
-            // ambil container/list tempat semua komentar ditaruh
             const list = box.querySelector('.comment-list');
 
-            // function buat nambah komentar baru ke list
             function addComment() {
-                // ambil teks dari input dan trim spasi di pinggir
                 const text = input.value.trim();
-                // kalau kosong, jangan ngapa-ngapain
                 if (!text) return;
 
-                // bikin elemen div baru buat satu komentar
                 const item = document.createElement('div');
                 item.className = 'comment-item';
-
-                // isi HTML komentar baru (pakai foto profil kamu + nama "Kamu" + waktu "Baru saja")
                 item.innerHTML = `
                   <img src="asset/Ellipse 11.png" class="comment-avatar-img comment-avatar-me" alt="Kamu">
                   <div class="comment-bubble">
@@ -536,36 +554,28 @@
                   </div>
                 `;
 
-                // masukin komentar baru ke bagian paling bawah list
                 list.appendChild(item);
-                // kosongin input lagi setelah ngirim
                 input.value = '';
-                // scroll list komentar ke paling bawah biar komentar terbaru kelihatan
                 list.scrollTop = list.scrollHeight;
             }
 
-            // kalau tombol kirim ada → pasang event klik buat jalankan addComment()
             if (sendBtn) {
               sendBtn.addEventListener('click', addComment);
             }
 
-            // kalau user tekan Enter di input → juga panggil addComment()
             if (input) {
               input.addEventListener('keydown', function (e) {
                 if (e.key === 'Enter') {
-                  e.preventDefault(); // biar nggak bikin baris baru
+                  e.preventDefault();
                   addComment();
                 }
               });
             }
 
-            // tandain kalau box ini sudah pernah di-init (dipasang event) pakai atribut data
             box.dataset.init = 'true';
         }
 
-        // toggle class "show" → buat nampilin atau nyembunyiin box komentar
         box.classList.toggle('show');
-        // kasih efek aktif di icon komentar (warna beda) saat box komentar kebuka
         this.classList.toggle('comment-active');
       });
     });

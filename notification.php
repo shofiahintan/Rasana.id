@@ -16,13 +16,15 @@
     </div>
 
     <div class="side-menu">
-        <a href="search.php"><i class="ri-global-line"></i></a>
-        <a href="home-page.php"><i class="ri-home-4-line"></i></a>
-        <a href="posting.php"><i class="ri-add-line"></i></a>
-        <a href="map.php"><i class="ri-map-pin-line"></i></a>
-        <a href="notification.php" class="active"><i class="ri-notification-3-line"></i></a>
-        <a href="profilesetting.php"><i class="ri-settings-3-line"></i></a>
-    </div>
+    <a href="search.php"><i class="ri-global-line"></i></a>
+    <a href="home-page.php"><i class="ri-home-4-line"></i></a>
+    <a href="posting.php"><i class="ri-add-line"></i></a>
+    <a href="map.php"><i class="ri-map-pin-line"></i></a>
+    
+    <a href="notification.php" class="active"><i class="ri-notification-3-line"></i></a>
+    
+    <a href="profilesetting.php"><i class="ri-settings-3-line"></i></a>
+</div>
 
     <div class="profile">
         <a href="profilesetting.php">

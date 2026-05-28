@@ -208,173 +208,196 @@
 
 <div class="map-popup" id="mapPopup">
   <div class="map-popup-inner">
-    <button class="popup-close" id="popupClose">&times;</button>
+    <button class="popup-close" id="popupClose"><i class="ri-close-line"></i></button>
+    
     <div class="popup-header">
       <div class="popup-icon-badge">
-        <i class="ri-restaurant-2-line"></i>
+        <i class="ri-map-pin-2-fill"></i>
       </div>
       <div class="popup-title-group">
-        <h2 id="popupProvince">Daerah Kuliner</h2>
-        <span id="popupSubtitle">Rekomendasi makanan dan tempat makan terbaik</span>
+        <h2 id="popupTitle">Nama Daerah</h2>
+        <span id="popupCategory"><i class="ri-restaurant-2-line"></i> Kategori Kuliner</span>
       </div>
     </div>
 
     <div class="popup-section">
       <div class="popup-section-title">
-        <i class="ri-bowl-fill"></i>
-        <span>Makanan Khas</span>
+        <i class="ri-goblet-fill"></i>
+        <span>Makanan Khas Nusantara</span>
       </div>
-      <div class="popup-chip-list" id="popupFoods"></div>
+      <div class="popup-chip-list" id="popupFoods">
+        </div>
     </div>
 
     <div class="popup-section">
       <div class="popup-section-title">
-        <i class="ri-map-pin-2-fill"></i>
-        <span>Rekomendasi Restoran</span>
+        <i class="ri-git-merge-fill"></i>
+        <span>Rekomendasi Restoran Populer</span>
       </div>
-      <div class="popup-restaurant-list" id="popupRestaurants"></div>
+      <div class="popup-restaurant-list" id="popupRestaurants">
+        </div>
     </div>
   </div>
 </div>
 
 <script>
-// ================== DATA POPUP ==================
-// Ini adalah database kecil untuk isi pop-up.
-// Key-nya harus sama dengan data-region di path SVG.
-// Jadi kalau path punya data-region="jawa-timur"
-// maka dia bakal ambil data di popupData["jawa-timur"].
-const popupData = {
-  "jawa-timur": {
-    province: "Jawa Timur",
-    subtitle: "Pedas, gurih, dan kaya bumbu",
-    foods: [
-      "Rawon",
-      "Rujak Cingur",
-      "Tahu Tek",
-      "Sate Klopo"
-    ],
-    restaurants: [
-      {
-        name: "Depot Rawon Nguling",
-        city: "Surabaya",
-        rating: "4.8"
-      },
-      {
-        name: "Warung Rujak Cingur Delta",
-        city: "Sidoarjo",
-        rating: "4.6"
-      }
-    ]
-  },
+document.addEventListener("DOMContentLoaded", function () {
+  // 1. DATA DUMMY LENGKAP PROVINSI (Dipetakan berdasarkan ID unik & Title SVG)
+  const regionalData = {
+    "ID-AC": {
+      name: "Aceh",
+      category: "Rempah Kuat & Tradisional",
+      foods: ["Mie Aceh", "Nasi Gurih", "Ayam Tangkap", "Kuah Pliek U"],
+      restaurants: [
+        { name: "Mie Razali", city: "Banda Aceh", rating: "4.8" },
+        { name: "Ayam Tangkap Blang Blahdeh", city: "Aceh Besar", rating: "4.7" }
+      ]
+    },
+    "ID-BA": {
+      name: "Bali",
+      category: "Otentik Bali & Kaya Bumbu Base Gede",
+      foods: ["Ayam Betutu", "Sate Lilit", "Nasi Campur Bali", "Serombotan"],
+      restaurants: [
+        { name: "Ayam Betutu Men Tempeh", city: "Gilimanuk", rating: "4.9" },
+        { name: "Warung Nasi Ayam Kedewatan Ibu Mangku", city: "Ubud", rating: "4.8" }
+      ]
+    },
+    "ID-BB": {
+      name: "Bangka Belitung",
+      category: "Seafood & Akulturasi Budaya",
+      foods: ["Mie Bangka", "Lempah Kuning", "Pantiaw", "Berego"],
+      restaurants: [
+        { name: "Mie Belitung Atep", city: "Belitung", rating: "4.7" },
+        { name: "Warung Lempah Kuning Muara", city: "Pangkalpinang", rating: "4.6" }
+      ]
+    },
+    "ID-BE": {
+      name: "Bengkulu",
+      category: "Kuliner Tradisional & Unik",
+      foods: ["Pendap", "Gulai Kemba'ang", "Bagargasing", "Kue Tat"],
+      restaurants: [
+        { name: "RM semarang Pendap", city: "Bengkulu Kota", rating: "4.5" },
+        { name: "Kopi Boutique Bengkulu", city: "Bengkulu", rating: "4.6" }
+      ]
+    },
+    "ID-BT": {
+      name: "Banten",
+      category: "Khas Pesisir & Kesultanan",
+      foods: ["Sate Bandeng", "Rabeg", "Nasi Sumsum", "Pecak Bandeng"],
+      restaurants: [
+        { name: "Sate Bandeng Ibu Suka", city: "Serang", rating: "4.7" },
+        { name: "RM Rabeg Khas Serang", city: "Cilegon", rating: "4.6" }
+      ]
+    },
+    "ID-GO": {
+      name: "Gorontalo",
+      category: "Sup Segar & Jagung Tradisional",
+      foods: ["Binte Biluhuta", "Ayam Iloni", "Sate Tuna", "Kue Sabongi"],
+      restaurants: [
+        { name: "RM Meranti Binte Biluhuta", city: "Gorontalo", rating: "4.6" },
+        { name: "Sate Tuna Haji Ali", city: "Gorontalo", rating: "4.7" }
+      ]
+    }
+  };
 
-  // Sama kaya di atas, tapi untuk Sumbar
-  "sumatera-barat": {
-    province: "Sumatera Barat",
-    subtitle: "Surga rendang dan masakan Padang",
-    foods: [
-      "Rendang",
-      "Gulai Itiak Lado Mudo",
-      "Sate Padang",
-      "Dendeng Balado"
-    ],
-    restaurants: [
-      {
-        name: "Rumah Makan Sari Raso",
-        city: "Bukittinggi",
-        rating: "4.7"
-      },
-      {
-        name: "Rumah Makan Pagi Sore",
-        city: "Padang",
-        rating: "4.9"
-      }
-    ]
+  // 2. SELEKTOR ELEMEN UI
+  const paths = document.querySelectorAll(".map-wrapper svg path");
+  const popup = document.getElementById("mapPopup");
+  const popupTitle = document.getElementById("popupTitle");
+  const popupCategory = document.getElementById("popupCategory");
+  const popupFoods = document.getElementById("popupFoods");
+  const popupRestaurants = document.getElementById("popupRestaurants");
+  const popupClose = document.getElementById("popupClose");
+
+  // Fallback Data Komprehensif Otomatis untuk Wilayah yang Belum Terdaftar di Atas
+  function getFallbackData(provinceName) {
+    return {
+      name: provinceName || "Daerah Nusantara",
+      category: "Kuliner Tradisional Pilihan",
+      foods: ["Makanan Khas Daerah", "Sajian Nusantara", "Kudapan Tradisional"],
+      restaurants: [
+        { name: "Rumah Makan Utama Daerah", city: "Pusat Kota", rating: "4.6" },
+        { name: "Warung Rasa Nusantara", city: "Kawasan Wisata", rating: "4.5" }
+      ]
+    };
   }
-};
 
+  // 3. EVENT LISTENER UNTUK SEMUA PATH SVG
+  paths.forEach(function (path) {
+    const id = path.getAttribute("id");
+    const title = path.getAttribute("title");
 
-// ================== NGAMBIL ELEMENT POPUP ==================
-// Ini mengambil elemen popup supaya bisa diubah teksnya.
-const popup = document.getElementById("mapPopup");
-const popupClose = document.getElementById("popupClose");
-const popupProvince = document.getElementById("popupProvince");
-const popupSubtitle = document.getElementById("popupSubtitle");
-const popupFoods = document.getElementById("popupFoods");
-const popupRestaurants = document.getElementById("popupRestaurants");
+    // Menjamin semua wilayah responsif saat kursor mouse mendekat/mengetuk layar
+    path.addEventListener("click", function (e) {
+      // Hapus class active-region dari daerah mana pun yang diklik sebelumnya
+      paths.forEach(p => p.classList.remove("active-region"));
+      
+      // Tambahkan kelas penanda aktif pada wilayah yang baru diklik
+      path.classList.add("active-region");
 
+      // Cari relasi data berdasarkan id, jika belum ada pakai fallback data otomatis
+      const data = regionalData[id] || getFallbackData(title);
 
-// ================== NGAMBIL SEMUA PATH MAP ==================
-// Ini mengambil SEMUA <path> dari svg map.
-const paths = document.querySelectorAll(".map-wrapper svg path");
+      // Suntik data ke UI Popup
+      popupTitle.innerText = data.name;
+      popupCategory.innerHTML = '<i class="ri-restaurant-2-line"></i> Kategori: ' + data.category;
 
+      // Render Chips Makanan Khas
+      popupFoods.innerHTML = "";
+      data.foods.forEach(function (food) {
+        const chip = document.createElement("div");
+        chip.className = "popup-chip";
+        chip.innerHTML = '<i class="ri-knife-line"></i><span>' + food + '</span>';
+        popupFoods.appendChild(chip);
+      });
 
-// ================== KETIKA PATH DIKLIK ==================
-paths.forEach(function (path) {
-  path.addEventListener("click", function () {
+      // Render Detail List Restoran Terpopuler
+      popupRestaurants.innerHTML = "";
+      data.restaurants.forEach(function (resto) {
+        const item = document.createElement("div");
+        item.className = "popup-restaurant-item";
+        item.innerHTML = `
+          <div class="popup-restaurant-left">
+            <i class="ri-store-2-fill"></i>
+            <div class="popup-restaurant-text">
+              <span>${resto.name}</span>
+              <small>${resto.city}</small>
+            </div>
+          </div>
+          <div class="popup-rating">
+            <i class="ri-star-fill"></i>
+            <span>${resto.rating}</span>
+          </div>
+        `;
+        popupRestaurants.appendChild(item);
+      });
 
-    // Ambil data-region dari path yang diklik
-    const regionKey = path.getAttribute("data-region");
-
-    // Kalau path nggak punya data-region, popup ga muncul
-    if (!regionKey || !popupData[regionKey]) return;
-
-    // Ambil data provinsi dari popupData
-    const data = popupData[regionKey];
-
-    // Masukkan nama provinsi dan subtitle ke popup
-    popupProvince.textContent = data.province;
-    popupSubtitle.textContent = data.subtitle;
-
-    // ================== MENGISI DAFTAR MAKANAN ==================
-    popupFoods.innerHTML = ""; // dikosongin dulu
-    data.foods.forEach(function (food) {
-      const chip = document.createElement("div");
-      chip.className = "popup-chip";
-
-      // Item makanan + icon
-      chip.innerHTML = '<i class="ri-knife-line"></i><span>' + food + "</span>";
-      popupFoods.appendChild(chip);
+      // Tampilkan popup dengan efek smooth transition
+      popup.classList.add("active");
     });
-
-    // ================== MENGISI DAFTAR RESTORAN ==================
-    popupRestaurants.innerHTML = ""; // dikosongin dulu
-    data.restaurants.forEach(function (resto) {
-      const item = document.createElement("div");
-      item.className = "popup-restaurant-item";
-
-      // Struktur HTML restoran
-      item.innerHTML =
-        '<div class="popup-restaurant-left">' +
-          '<i class="ri-store-2-fill"></i>' +
-          '<div class="popup-restaurant-text">' +
-            "<span>" + resto.name + "</span>" +
-            "<small>" + resto.city + "</small>" +
-          "</div>" +
-        "</div>" +
-        '<div class="popup-rating">' +
-          '<i class="ri-star-fill"></i>' +
-          "<span>" + resto.rating + "</span>" +
-        "</div>";
-
-      popupRestaurants.appendChild(item);
-    });
-
-    // Tampilkan popup
-    popup.classList.add("active");
   });
-});
 
-
-// ================== TOMBOL CLOSE (X) ==================
-popupClose.addEventListener("click", function () {
-  popup.classList.remove("active");
-});
-
-// ================== TUTUP POPUP KALO KLIK AREA GELAP ==================
-popup.addEventListener("click", function (e) {
-  if (e.target === popup) {
+  // 4. CLOSING POPUP CONTROLLER
+  function closePopup() {
     popup.classList.remove("active");
+    paths.forEach(p => p.classList.remove("active-region"));
   }
+
+  popupClose.addEventListener("click", closePopup);
+
+  // Tutup otomatis jika pengguna mengklik area luar/gelap pada backdrop
+  popup.addEventListener("click", function (e) {
+    if (e.target === popup) {
+      closePopup();
+    }
+  });
+
+  // Dukungan tombol 'Escape' keyboard untuk kenyamanan aksesibilitas
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && popup.classList.contains("active")) {
+      closePopup();
+    }
+  });
 });
 </script>
 </body>

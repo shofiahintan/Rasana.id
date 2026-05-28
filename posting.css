@@ -87,28 +87,26 @@ body {
     background:#f5e7d3;
     box-shadow:0 8px 20px rgba(129,94,38,0.12);
 }
-<<<<<<< HEAD
-.side-menu a.active i{
-    background:#f5e7d3;
-    color:#5a3e10;
-    font-weight:900;
-    box-shadow:0 4px 14px rgba(129,94,38,0.18);
-    position:relative;
+/* ==================== FIX MERGE CONFLICT (SUDAH BERSIH) ==================== */
+.side-menu a.active i {
+    background: #f5e7d3;
+    color: #5a3e10;
+    font-weight: 900;
+    box-shadow: 0 4px 14px rgba(129,94,38,0.18);
+    position: relative;
 }
 
-.side-menu a.active i::after{
-    content:'';
-    position:absolute;
-    left:-20px;
-    top:50%;
-    transform:translateY(-50%);
-    width:4px;
-    height:26px;
-    background:#815e26;
-    border-radius:0 4px 4px 0;
+.side-menu a.active i::after {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 26px;
+    background: #815e26;
+    border-radius: 0 4px 4px 0;
 }
-=======
->>>>>>> cb7d877800c6a89960560799dde12f5368374084
 
 .profile img{
     width:44px;
@@ -208,31 +206,36 @@ body {
     color: #B0B0B0; 
 }
 
-.form-section { 
-    margin-bottom: 20px; 
-    position: relative; 
-    z-index: 10; 
+/* ==================== PERBAIKAN TOTAL DROPDOWN KATEGORI & LOKASI ==================== */
+
+/* 1. Kunci area setiap seksi form agar memiliki jarak aman dan tidak saling tabrak */
+.form-section {
+    margin-bottom: 1.8rem !important; /* Memberikan ruang napas antar inputan */
+    position: relative;               /* Menjaga elemen di dalamnya tetap di jalur */
 }
 
-.form-label { 
-    display: block; 
-    font-size: 15px; 
-    font-weight: 500; 
-    margin-bottom: 8px; 
-    color: var(--text-color); 
-}
-
+/* 2. Pastikan wrapper select menjadi patokan utama posisi melayang */
 .custom-select-wrapper { 
     width: 100%; 
     position: relative; 
-    z-index: 15; 
+    z-index: 99;                      /* Diturunkan sedikit agar tertata runut */
 }
 
+/* Kategori harus memiliki lapisan (z-index) lebih tinggi dari Lokasi agar saat terbuka tidak tertutup inputan bawahnya */
+.category-section .custom-select-wrapper {
+    z-index: 100; 
+}
+
+.location-section .custom-select-wrapper {
+    z-index: 95;
+}
+
+/* 3. Tombol pemicu dropdown */
 .custom-select-trigger {
     width: 100%;
     padding: 12px 15px;
     border: 1px solid var(--border-color);
-    border-radius: 0 !important;
+    border-radius: 8px !important;    /* Diubah jadi 8px biar estetik, senada dengan tombol bawah */
     background-color: #F8F8F8;
     font-size: 15px;
     color: var(--text-color);
@@ -243,36 +246,48 @@ body {
     position: relative;
 }
 
-/* FIX BAGIAN INI (BUKAN ABSOLUTE, TANPA TOP/LEFT) */
+/* 4. PERBAIKAN UTAMA: List Pilihan HARUS Absolute Melayang Sempurna */
 .custom-options {
-    position: relative;       /* FIX */
+    position: absolute !important;    /* WAJIB: Mengubah dari relative ke absolute agar melayang */
+    top: 100%;                        /* Tepat di bawah batas trigger */
+    left: 0;
     width: 100%;
-    background-color: var(--card-bg);
+    background-color: #ffffff;        /* Memakai warna putih solid agar tulisan belakangnya tidak tembus */
     border: 1px solid var(--border-color);
-    border-radius: 0 !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    z-index: 1000;
-    overflow: hidden;
+    border-radius: 8px !important;    /* Disesuaikan ujungnya biar membulat rapi */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* Efek bayangan biar kelihatan pop-up melayang */
+    z-index: 9999 !important;         /* Lapisan tertinggi agar berada di atas teks deskripsi */
+    overflow-y: auto !important;      /* Mengaktifkan scrollbar vertikal */
+    
+    /* Animasi transisi bawaan kamu tetap aman */
     max-height: 0;
     opacity: 0;
     visibility: hidden;
     transition: max-height .3s ease-out, opacity .3s ease-out, visibility .3s;
 }
 
+/* 5. Saat dropdown aktif diklik */
 .custom-options.show { 
-    max-height: 200px; 
-    opacity: 1; 
-    visibility: visible; 
+    max-height: 200px !important;     /* Batasi tinggi kotak pilihan */
+    opacity: 1 !important; 
+    visibility: visible !important; 
 }
 
+/* 6. Desain item pilihan di dalamnya */
 .custom-option { 
-    padding: 10px 15px; 
+    padding: 11px 15px; 
     cursor: pointer; 
+    color: #333333;
     transition: background-color .15s; 
 }
 
 .custom-option:hover { 
-    background-color: var(--sidebar-new-hover-bg); 
+    background-color: #f5e7d3;        /* Menyesuaikan warna hover cokelat hangat khas Rasana.id */
+    color: #5a3e10;
+}
+/* TAMBAHKAN CLASS BARU INI DI CSS KAMU */
+.form-section {
+    margin-bottom: 1.5rem !important; /* Memastikan jarak antar inputan form tetap konsisten */
 }
 
 .create-events-btn {

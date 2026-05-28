@@ -6,29 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="dashboard admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-<!-- SIDEBAR ADMIN -->
 <aside class="admin-sidebar">
   <div class="admin-logo">
-<<<<<<< HEAD
     <a href="home-page.php"><img src="asset/logo2.png" alt="Rasana Logo"></a>
-=======
-    <a href="home-page.php"><img src="asset/logo2.png" alt="Rasana Logo"></a>
->>>>>>> cb7d877800c6a89960560799dde12f5368374084
     <span>Rasana</span>
   </div>
 
   <nav class="admin-menu">
-<<<<<<< HEAD
-    <a href="#"><i class="ri-dashboard-line"></i>Ringkasan</a>
-=======
-    <a href="#" class="active"><i class="ri-dashboard-line"></i>Ringkasan</a>
->>>>>>> cb7d877800c6a89960560799dde12f5368374084
-    <a href="#pengguna"><i class="ri-user-3-line"></i>Pengguna</a>
-    <a href="#postingan"><i class="ri-file-list-3-line"></i>Postingan</a>
-    <a href="#interaksi"><i class="ri-chat-1-line"></i>Interaksi</a>
+    <a href="#" class="menu-item active"><i class="ri-dashboard-line"></i><span>Dashboard</span></a>
+    <a href="#tren-statistik" class="menu-item"><i class="ri-bar-chart-box-line"></i><span>Tren & Statistik</span></a>
+    <a href="#postingan" class="menu-item"><i class="ri-file-list-3-line"></i><span>Postingan</span></a>
+    <a href="#pengguna" class="menu-item"><i class="ri-user-3-line"></i><span>Pengguna</span></a>
+    <a href="#interaksi" class="menu-item"><i class="ri-chat-1-line"></i><span>Interaksi</span></a>
   </nav>
 
   <div class="admin-profile-box">
@@ -45,13 +38,11 @@
   </div>
 
   <div class="admin-bottom">
-    <p>© 2025 Rasana.id</p>
+    <p>© 2026 Rasana.id</p>
   </div>
 </aside>
 
-<!-- KONTEN UTAMA -->
 <main class="admin-main">
-  <!-- BAR ATAS -->
   <header class="admin-topbar">
     <div>
       <h1>Dashboard Admin</h1>
@@ -63,52 +54,64 @@
     </div>
   </header>
 
-  <!-- RINGKASAN STATISTIK -->
   <section class="admin-section">
-    <h2>Ringkasan Sistem</h2>
+    <h2 class="section-title">Ringkasan Sistem</h2>
     <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-header">
-          <span>Pengguna Terdaftar</span>
-          <i class="ri-user-3-line"></i>
+      <div class="stat-card-premium">
+        <div class="stat-icon-wrapper"><i class="ri-user-3-line"></i></div>
+        <div class="stat-info">
+          <span class="stat-label">Total User</span>
+          <p class="stat-value">12,540</p>
         </div>
-        <p class="stat-number">12,540</p>
-        <p class="stat-desc">Termasuk pengguna aktif & diblokir</p>
       </div>
 
-      <div class="stat-card">
-        <div class="stat-header">
-          <span>Total Postingan</span>
-          <i class="ri-file-list-3-line"></i>
+      <div class="stat-card-premium">
+        <div class="stat-icon-wrapper"><i class="ri-file-list-3-line"></i></div>
+        <div class="stat-info">
+          <span class="stat-label">Total Postingan</span>
+          <p class="stat-value">3,210</p>
         </div>
-        <p class="stat-number">3,210</p>
-        <p class="stat-desc">Review, cerita kuliner, dan resep</p>
       </div>
 
-      <div class="stat-card">
-        <div class="stat-header">
-          <span>Interaksi Hari Ini</span>
-          <i class="ri-heart-2-line"></i>
+      <div class="stat-card-premium">
+        <div class="stat-icon-wrapper"><i class="ri-heart-2-line"></i></div>
+        <div class="stat-info">
+          <span class="stat-label">Total Interaksi</span>
+          <p class="stat-value">8,452</p>
         </div>
-        <p class="stat-number">8,452</p>
-        <p class="stat-desc">Like, comment, share, follow</p>
       </div>
 
-      <div class="stat-card stat-card-alert">
-        <div class="stat-header">
-          <span>Perlu Moderasi</span>
-          <i class="ri-alert-line"></i>
+      <div class="stat-card-premium highlight-card">
+        <div class="stat-icon-wrapper"><i class="ri-fire-line"></i></div>
+        <div class="stat-info">
+          <span class="stat-label">Kuliner Terpopuler</span>
+          <p class="stat-value-text">Resep Pukis</p>
         </div>
-        <p class="stat-number">18</p>
-        <p class="stat-desc">Dilaporkan atau melanggar aturan</p>
       </div>
     </div>
   </section>
 
-  <!-- TABEL PENGGUNA -->
+  <section class="admin-section" id="tren-statistik">
+    <h2 class="section-title">Tren & Statistik Kuliner</h2>
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h3>Kategori Kuliner Populer (Total Postingan)</h3>
+        <div class="chart-container">
+          <canvas id="categoryChart"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Distribusi Interaksi Pengguna</h3>
+        <div class="chart-container">
+          <canvas id="engagementChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="admin-section" id="pengguna">
     <div class="section-head">
-      <h2>Manajemen Pengguna</h2>
+      <h2 class="section-title">Manajemen Pengguna</h2>
       <div class="section-actions">
         <input type="text" class="input-search" placeholder="Cari nama, email, atau user ID...">
         <select class="input-select">
@@ -173,10 +176,9 @@
     </div>
   </section>
 
-  <!-- TABEL POSTINGAN -->
   <section class="admin-section" id="postingan">
     <div class="section-head">
-      <h2>Moderasi Postingan</h2>
+      <h2 class="section-title">Moderasi Postingan</h2>
       <div class="section-actions">
         <select class="input-select">
           <option value="">Semua Kategori</option>
@@ -247,10 +249,9 @@
     </div>
   </section>
 
-  <!-- TABEL INTERAKSI -->
   <section class="admin-section" id="interaksi">
     <div class="section-head">
-      <h2>Log Interaksi User</h2>
+      <h2 class="section-title">Log Interaksi User</h2>
       <div class="section-actions">
         <select class="input-select">
           <option value="">Semua Interaksi</option>
@@ -307,8 +308,84 @@
       </table>
     </div>
   </section>
-
 </main>
+
+<script>
+  Chart.defaults.font.family = "'Poppins', -apple-system, sans-serif";
+  Chart.defaults.color = '#777777';
+
+  // 1. Grafik Batang (Nuansa Bumi Khas Rasana)
+  const ctxCategory = document.getElementById('categoryChart').getContext('2d');
+  new Chart(ctxCategory, {
+    type: 'bar',
+    data: {
+      labels: ['Resep Makanan', 'Review Tempat', 'Cerita Kuliner', 'Tips & Trik'],
+      datasets: [{
+        label: 'Jumlah Postingan',
+        data: [1420, 980, 530, 280],
+        backgroundColor: [
+          '#754C24', // Cokelat Tua
+          '#AC8254', // Warm Beige
+          '#F9DA62', // Gold Rasana
+          '#FCE8A3'  // Cream
+        ],
+        borderRadius: 8,
+        borderWidth: 0,
+        barThickness: 32
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: { duration: 1200, easing: 'easeOutQuart' },
+      plugins: { legend: { display: false } },
+      scales: {
+        y: {
+          beginAtZero: true,
+          grid: { color: '#F3EFE6', drawTicks: false },
+          border: { dash: [5, 5] }
+        },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // 2. Grafik Donut (Premium Minimalis)
+  const ctxEngagement = document.getElementById('engagementChart').getContext('2d');
+  new Chart(ctxEngagement, {
+    type: 'doughnut',
+    data: {
+      labels: ['Like', 'Comment', 'Share', 'Follow'],
+      datasets: [{
+        data: [4852, 2100, 1000, 500],
+        backgroundColor: ['#754C24', '#AC8254', '#F9DA62', '#E0E0E0'],
+        borderWidth: 4,
+        borderColor: '#ffffff'
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: { duration: 1500, easing: 'easeOutBack' },
+      plugins: {
+        legend: {
+          position: 'right',
+          labels: { boxWidth: 12, padding: 20, font: { size: 13 } }
+        }
+      },
+      cutout: '80%'
+    }
+  });
+
+  // Logika Manual Menu Aktif Sidebar saat di-klik
+  const menuItems = document.querySelectorAll('.admin-menu .menu-item');
+  menuItems.forEach(item => {
+    item.addEventListener('click', function() {
+      menuItems.forEach(i => i.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
 
 </body>
 </html>
